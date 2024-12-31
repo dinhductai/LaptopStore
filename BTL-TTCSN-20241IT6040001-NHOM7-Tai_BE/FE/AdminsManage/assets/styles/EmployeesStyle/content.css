@@ -1,0 +1,35 @@
+/* Styling for content area */
+#content-area {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1.text-center {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.table {
+    border: 1px solid #dee2e6;
+    margin-top: 15px;
+}
+
+.table th {
+    background-color: #ef4f5a;
+    color: white;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-success {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+}

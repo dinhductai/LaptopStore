@@ -1,0 +1,183 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: center;
+    transition: margin-left 0.3s ease;
+    padding-left: 0;
+    width: 80%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+/* Responsive design adjustments */
+@media (min-width: 769px) {
+    #sidebar {
+        width: 250px;
+        visibility: visible;
+    }
+
+    #wrapper {
+        margin-left: 250px;
+    }
+
+    #sidebar.collapsed ~ #wrapper {
+        margin-left: 0;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #wrapper {
+        margin-left: 0;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    #sidebar {
+        width: 0;
+        visibility: hidden;
+    }
+
+    #sidebar.collapsed {
+        width: 250px;
+        visibility: visible;
+    }
+
+    #sidebar.collapsed ~ #wrapper {
+        margin-left: 0;
+    }
+}
+
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--color-background);
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+/* Khối quản lý thông tin cá nhân Admin */
+.box-content{
+    margin-left: 10%;
+    border-radius: 3%;
+}
+
+.box-content .box-content-main {
+    text-align: center;
+    padding: 5%;
+}
+
+.box-content .box-content-main .box-content-item {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+.box-content .box-content-item p {
+    margin-right: 25%;
+}
+
+.box-content-main i {
+    margin-bottom: 2%;
+}
+
+/* End khối quản lý thông tin cá nhân Admin*/
+
+/* Khối quản lý thông tin About Us */
+.box-content-main p {
+    font-size: large;
+}
+/* End Khối quản lý thông tin About Us */

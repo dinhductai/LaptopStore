@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bill</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/styles/Bill.css">
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar Menu -->
+      <div class="bg-dark text-white" id="sidebar">
+        <div class="sidebar-header p-4">
+          <h4>Dashboard</h4>
+        </div>
+        <ul class="nav flex-column p-2">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="Dashboard.html" id="dashboardLink">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="TableCustomer.html" id="customerTableLink">Table Customer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="TableProduct.html" id="productTableLink">Table Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="EmployeesManage.html" id="employeesTableLink">Table EmployeesManage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="TableSupplier.html" id="supplierTableLink">Table Supplier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="Bill.html" id="billLink">Bill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="WareHouse.html" id="warehouseLink">Warehouse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="Promotion.html" id="PromotionLink">Promotion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="ProfileAdmin.html" id="profileLink">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="AboutUs.html" id="profileLink">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="log-out">Đăng xuất</a>
+          </li>
+        </ul>
+      </div>
+
+  
+    <!-- Content -->
+<div class="container mt-5" id="content-area">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-lg-8">
+            <div class="row">
+                <!-- Credit Card -->
+                <div class="col-7">
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <i class="material-icons text-dark p-2">wifi</i>
+                            <h5 class="mt-4 mb-5 pb-2">4562&nbsp;&nbsp;&nbsp;1122&nbsp;&nbsp;&nbsp;4594&nbsp;&nbsp;&nbsp;7852</h5>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p class="mb-0">Card Holder</p>
+                                    <h6 class="mb-0">Jack Peterson</h6>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Expires</p>
+                                    <h6 class="mb-0">11/22</h6>
+                                </div>
+                                <div class="ms-auto">
+                                    <img class="w-60 mt-2" src="assets/image/mastercard.png" alt="logo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-5">
+                    <!-- Salary & Paypal Cards -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card text-center">
+                                <div class="card-header">Tổng số tiền thanh toán Offline</div>
+                                <div class="card-body">
+                                    <p class="text-muted">Belong Interactive</p>
+                                    <h5 class="totalAmountPayOffline">+$2000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card text-center">
+                                <div class="card-header">Tổng số tiền thanh toán Online</div>
+                                <div class="card-body">
+                                    <p class="text-muted">Freelance Payment</p>
+                                    <h5 class="totalAmountPayOnline">$455.00</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="card mt-4">
+                    <div class="card-header d-flex justify-content-between">
+                        <h6>Payment Method</h6>
+                        <button class="btn btn-sm btn-outline-primary">Add New Card</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center p-2 border rounded">
+                                    <img class="w-10 me-3" src="assets/image/mastercard.png" alt="logo" />
+                                    <h6>**** **** **** 7852</h6>
+                                    <i class="material-icons ms-auto text-dark" title="Edit Card">edit</i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-2 border rounded">
+                                    <img class="w-10 me-3" src="assets/image/visa.png" alt="logo" />
+                                    <h6>**** **** **** 5248</h6>
+                                    <i class="material-icons ms-auto text-dark" title="Edit Card">edit</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-4">
+            <!-- Invoices -->
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <h6>Invoices</h6>
+                    <button class="btn btn-sm btn-outline-primary">View All</button>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group" id="invoice-list-mini">
+                        
+                        <!-- Additional invoice items can be added similarly -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Thông tin hóa đơn</h6>
+            </div>
+            <div class="card-body pt-4 p-3" id="bill-list">
+                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+  <script src="assets/js/Bill.js"></script>
+  <script src="assets/js/LogOut/Logout.js"></script>
+</body>
+</html>

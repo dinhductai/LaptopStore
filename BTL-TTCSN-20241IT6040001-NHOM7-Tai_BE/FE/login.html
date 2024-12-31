@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <link rel="icon" href="assets/picture/logolmain.png" type="image/x-icon">
+    <!-- Thêm link đến Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/auth.css"> <!-- Link đến file CSS của bạn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  </head>
+  
+  <body class="d-flex align-items-center" style="height: 100vh;">
+   <!-- Nút Trang chủ -->
+<span class="home-link"><a href="index.html">Trang chủ</a>
+  <span>/</span>
+  <span >Đăng nhập</span>
+</span>
+
+
+    
+    <div class="container">
+      
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <!-- Logo -->
+          <div class="logo-container text-center mb-4">
+            <img src="assets/picture/logolmain.png" alt="Logo" class="logo"> 
+          </div>
+
+          <!-- Form đăng nhập -->
+          <form class="login-form" onsubmit="return login(event)">
+            <h2 class="text-center">Đăng nhập</h2>
+
+            <div class="form-group">
+              <label for="loGin">Tài khoản</label>
+              <input type="text" class="form-control" id="loGin" name="username" placeholder="Nhập tài khoản" required>
+            </div>
+
+            <div class="form-group">
+              <label for="passWord">Mật khẩu</label>
+              <input type="password" class="form-control" id="passWord" name="password" placeholder="Nhập mật khẩu" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+            <p class="text-center mt-3">Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thêm script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/LoginAccount/Login.js"></script>
+  </body>
+</html>

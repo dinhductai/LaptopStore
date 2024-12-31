@@ -1,0 +1,75 @@
+/* Định dạng tổng thể */
+.container-large {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+   
+  }
+  
+  .banner-custom {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    
+  }
+  
+  .img-fluid-item1 {
+    position: relative;
+    width: 100%;
+    
+  }
+  
+  .img-fluid-item1 img {
+    display: none; /* Ẩn tất cả ảnh ban đầu */
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    transition: opacity 0.5s ease; /* Hiệu ứng mờ dần khi chuyển đổi ảnh */
+    border: 1px solid #ccc; /* Thêm viền cho ảnh */
+    border-radius: 10px; /* Bo tròn góc */
+  }
+  
+  .img-fluid-item1 img.active {
+    display: block; /* Hiển thị ảnh đang được chọn */
+    opacity: 1;
+    border-color: #ff9800; /* Thay đổi màu viền ảnh khi được hiển thị */
+  }
+  
+  
+  /* Nút điều khiển */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 2;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

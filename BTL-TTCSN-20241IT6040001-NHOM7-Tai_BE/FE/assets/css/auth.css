@@ -1,0 +1,134 @@
+/* Thêm một số kiểu cơ bản cho body */
+body {
+    background-color: #f7f7f7; /* Màu nền nhạt */
+    font-family: 'Arial', sans-serif; /* Font chữ */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao toàn màn hình */
+  }
+  
+  /* Tùy chỉnh container chứa form đăng nhập */
+  .container {
+    max-width: 700px; /* Tăng chiều rộng tối đa */
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Bóng mờ đậm hơn */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Logo */
+  .logo-container img {
+    width: 180px; /* Tăng kích thước logo */
+    margin-bottom: 30px; /* Khoảng cách giữa logo và form */
+  }
+  
+  /* Định dạng tiêu đề */
+  h2 {
+    font-size: 32px; /* Tăng kích thước tiêu đề */
+    color: #333;
+    margin-bottom: 25px; /* Khoảng cách giữa tiêu đề và form */
+    font-weight: bold;
+  }
+  
+  /* Định dạng các trường nhập liệu */
+  .form-group {
+    margin-bottom: 25px; /* Khoảng cách giữa các trường */
+  }
+  
+  .form-group label {
+    font-size: 18px; /* Tăng kích thước chữ nhãn */
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10px; /* Khoảng cách giữa nhãn và ô nhập liệu */
+  }
+  
+  .form-control {
+    border-radius: 8px; /* Bo góc rộng hơn */
+    border: 1px solid #ccc;
+    padding: 12px; /* Thêm padding để ô nhập liệu rộng hơn */
+    font-size: 18px; /* Tăng kích thước chữ trong ô nhập */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Đổi màu viền khi focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Áp dụng shadow mạnh hơn khi focus */
+    outline: none; /* Tắt viền mặc định khi focus */
+  }
+  
+  /* Định dạng nút đăng nhập */
+  .btn-primary {
+    background-color:#de1919;
+    border-color: #007bff;
+    padding: 5px; /* Tăng kích thước nút */
+    font-size: 20px; /* Tăng kích thước chữ */
+    font-weight: bold;
+    border-radius: 8px; /* Bo góc rộng hơn cho nút */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+    width: 100%; /* Để nút rộng đầy đủ */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    cursor: pointer;
+  }
+  
+  /* Định dạng phần liên kết đăng ký */
+  p {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Thêm một số hiệu ứng cho form */
+  .login-form {
+    animation: fadeIn 0.5s ease-out; /* Thêm hiệu ứng khi load form */
+  }
+  
+  /* Hiệu ứng fadeIn cho form */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+ /* Nút Trang chủ */
+.home-link {
+  position: absolute; /* Đặt nút ở vị trí cố định */
+  top: 20px; /* Cách từ trên xuống 20px */
+  left: 20px; /* Cách từ trái sang 20px */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.home-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.home-link a:hover {
+  text-decoration: underline;
+}

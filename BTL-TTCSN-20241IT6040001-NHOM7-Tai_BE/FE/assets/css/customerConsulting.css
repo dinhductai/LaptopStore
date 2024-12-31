@@ -1,0 +1,86 @@
+/* Nút tư vấn */
+#floating-button {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #ffcc00; 
+    border-radius: 50%; 
+    padding: 15px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+#floating-button:hover {
+    transform: scale(1.1); 
+}
+
+/* Icon bên trong nút */
+#advisor-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Danh sách tư vấn */
+#advisor-list {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 350px;
+    max-height: 400px;
+    overflow-y: auto; 
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+    opacity: 0; 
+    transform: translateY(-20px); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+#advisor-list.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Thông tin tư vấn */
+#advisor-list .advisor {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#advisor-list .advisor p {
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+.advisor-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.advisor-info {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}

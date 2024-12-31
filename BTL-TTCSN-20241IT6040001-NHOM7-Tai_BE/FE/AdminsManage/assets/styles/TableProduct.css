@@ -1,0 +1,241 @@
+/* Sidebar - default style */
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #343a40;
+  transition: width 0.3s ease, visibility 0s 0.3s;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar header */
+.sidebar-header {
+  padding: 20px;
+  background-color: #eb2255;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+  color: #f8f9fa !important;
+  font-size: 16px;
+  padding: 15px 20px;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+  background-color: #ec5489;
+  padding-left: 30px;
+  border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+  display: flex;
+  justify-content: flex-start;
+  transition: margin-left 0.3s ease;
+  padding-left: 0;
+  height: 100vh;
+  width: 100%; /* Đảm bảo phần content chiếm 100% chiều rộng */
+}
+
+#content-area {
+  flex-grow: 1; /* Làm cho phần content chiếm phần còn lại của màn hình */
+  overflow-y: auto; /* Thêm thanh cuộn dọc nếu cần */
+  padding: 20px;
+  margin-left: 250px; /* Giữ khoảng cách với sidebar */
+}
+
+/* Sidebar collapse style */
+#sidebar.collapsed {
+  width: 0;
+  visibility: hidden;
+}
+
+#sidebar.collapsed ~ #wrapper {
+  margin-left: 0;
+}
+
+/* Tăng khoảng cách cho content khi sidebar mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+  margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 20px;
+  z-index: 1100;
+  border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #sidebar {
+      width: 200px;
+  }
+
+  #content-area {
+      margin-left: 200px; /* Cập nhật margin cho content khi sidebar nhỏ hơn */
+  }
+}
+
+/* Ensure content doesn't overflow sidebar */
+#content-area {
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  overflow-x: hidden; /* Tránh cuộn ngang */
+}
+
+#menu-toggle {
+  display: block;
+}
+
+/* Ẩn nút trên giao diện lớn (ví dụ: từ 768px trở lên) */
+@media (min-width: 768px) {
+  #menu-toggle {
+    display: none;
+  }
+}
+
+/* Phong cách chung cho khung chứa */
+.col-md-5 {
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  border-radius: 8px; /* Góc bo tròn */
+  padding: 20px; /* Khoảng cách bên trong */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  border: 1px solid #ddd; /* Viền mỏng */
+}
+
+/* Tiêu đề của danh sách */
+.col-md-5 h4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #333; /* Màu chữ đậm */
+  border-bottom: 2px solid #007bff; /* Đường kẻ dưới */
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase; /* Chữ in hoa */
+}
+
+/* Phong cách chung cho khung chứa */
+.col-md-7 {
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  border-radius: 8px; /* Góc bo tròn */
+  padding: 20px; /* Khoảng cách bên trong */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  border: 1px solid #ddd; /* Viền mỏng */
+}
+
+/* Tiêu đề của danh sách */
+.col-md-7 h4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #333; /* Màu chữ đậm */
+  border-bottom: 2px solid #007bff; /* Đường kẻ dưới */
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase; /* Chữ in hoa */
+}
+
+/* Danh sách các sản phẩm */
+#top-10-products-list {
+  list-style: none; /* Xóa dấu chấm của danh sách */
+  padding: 0;
+  margin: 0;
+}
+
+/* Phong cách cho từng mục trong danh sách */
+#top-10-products-list .list-group-item {
+  background-color: #fff; /* Nền trắng */
+  margin-bottom: 10px; /* Khoảng cách giữa các mục */
+  padding: 10px 15px; /* Khoảng cách bên trong */
+  border: 1px solid #ddd; /* Viền */
+  border-radius: 6px; /* Góc bo tròn */
+  display: flex;
+  justify-content: space-between; /* Căn đều các phần tử trong mục */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+}
+
+/* Hiệu ứng hover */
+#top-10-products-list .list-group-item:hover {
+  background-color: #f0f8ff; /* Màu nền khi hover */
+  cursor: pointer;
+}
+
+/* Phong cách cho nội dung chính trong mục */
+#top-10-products-list .product-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Phong cách cho phần thông tin phụ (nếu có) */
+#top-10-products-list .product-info {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* Ảnh sản phẩm */
+/* Định dạng hình ảnh trong bảng sản phẩm */
+table img {
+  max-width: 100px; /* Giới hạn chiều rộng tối đa */
+  height: auto; /* Giữ tỷ lệ gốc của hình ảnh */
+  display: block; /* Xóa khoảng cách thừa */
+  margin: 0 auto; /* Canh giữa hình ảnh */
+  border-radius: 5px; /* Bo góc cho hình ảnh */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng đổ bóng */
+}
+
+/* Định dạng bảng */
+table {
+  width: 100%; /* Chiều rộng toàn phần */
+  border-collapse: collapse; /* Loại bỏ đường kẻ thừa */
+  margin-top: 20px; /* Khoảng cách trên */
+}
+
+table th, table td {
+  padding: 10px; /* Khoảng cách nội dung */
+  text-align: center; /* Căn giữa nội dung */
+  border: 1px solid #ddd; /* Viền nhẹ */
+}
+
+table thead {
+  background-color: #f4f4f4; /* Màu nền tiêu đề */
+  font-weight: bold; /* In đậm tiêu đề */
+}
+
+table tbody tr:hover {
+  background-color: #f9f9f9; /* Đổi màu nền khi hover */
+}
+
+#top-10-products-list,#list-product-manage{
+  max-height: 500px;  
+  overflow-y: auto;   
+  padding: 0;
+  margin: 0;
+} 
+
+table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10; 
+}

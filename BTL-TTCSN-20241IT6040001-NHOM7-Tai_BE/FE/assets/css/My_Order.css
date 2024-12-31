@@ -1,0 +1,179 @@
+:root {
+    --color-background : #eee ;
+    --color-main : rgba(241, 18, 18, 0.884) ;
+}
+
+body{
+    background-color: var(--color-background);
+}
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--color-background);
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+/* Khối tóm tắt thông tin khách hàng */
+.summerize-infor-user {
+    /* display: flex; */
+    align-items: center;
+    border: var(--color-main);
+    border-radius: 4%;
+    justify-content: space-around;
+    padding: 1%;
+    float: left;
+}
+
+.summerize-infor-user .infor-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.summerize-infor-user .inner-user-box {
+    font-size: larger;
+}
+
+.summerize-infor-user .infor-box a:hover {
+    color: white;
+    background-color: var(--color-main);
+}
+
+
+/* End khối tóm tắt thông tin khách hàng */
+
+/* Khối điều hướng màn hình */
+/* .box-main {
+    
+} */
+
+.box-item {
+    border-radius: 4%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin: 15% 0;
+    padding: 5% 0;
+    font-size: larger;
+}
+
+/* .box-item i {
+
+} */
+
+.box-item a {
+    text-decoration: none;
+}
+
+.box-main .box-item:hover {
+    color: white;
+    background-color: var(--color-main);
+    margin-left: 10px; /* Khoảng cách ban đầu giữa button và các item */
+    transition: transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi mượt */
+}
+
+.box-main .box-item:hover a {
+    color: white;
+}
+
+/* Khối quản lý đơn hàng của tôi */
+.box-manage-order{
+    margin-left: 28%;
+    /* margin-top: -7%;  */
+    border-radius: 3%;
+}
+
+.box-manage-order .box-content-main {
+    text-align: center;
+    padding: 5%;
+}
+
+.box-manage-order .box-content-main .box-content-item {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+}
+
+.box-manage-order .box-content-item p {
+    margin-right: 25%;
+}
+
+
+/* End khối quản lý đơn hàng của tôi */
+
+/* Thanh điều hướng */
+#filter-nav {
+    display: flex;
+    justify-content: space-between;  /* Dàn trải đều các phần tử */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#filter-nav .nav-item {
+    flex: 1;  /* Mỗi phần tử chiếm 1 phần không gian đều nhau */
+    text-align: center;  /* Căn giữa các button */
+}
+
+#filter-nav .nav-item button {
+    width: 100%;  /* Đảm bảo button chiếm toàn bộ không gian của nav-item */
+    padding: 10px;  /* Tăng kích thước cho button */
+    border: 1px solid #ccc;  /* Viền cho button */
+    background-color: #f8f9fa;  /* Màu nền nhẹ */
+    cursor: pointer;  /* Con trỏ chuột */
+    font-size: 14px;  /* Kích thước chữ */
+}
+
+#filter-nav .nav-item button:hover {
+    background-color: #007bff;  /* Màu nền khi hover */
+    color: white;  /* Màu chữ khi hover */
+}
+
+/* End thanh điều hướng */
+
+/* Ảnh product */
+.order-image img {
+    width: 30%;
+    height: 80%;
+    float: left;
+}
+
+.order-item {
+    margin-top: 2%;
+}
+/* End ảnh product */
+
+/* Button Hủy đơn hàng */
+.red-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .red-button:hover {
+    background-color: darkred; /* Thay đổi màu khi hover */
+  }
+/* End button Hủy đơn hàng */

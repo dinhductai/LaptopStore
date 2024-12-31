@@ -1,0 +1,106 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: center;
+    transition: margin-left 0.3s ease;
+    padding-left: 0;
+    width: 80%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  #wrapper {
+    display: flex;
+  }
+  
+  #content-area {
+    margin-left: 250px;
+    padding: 20px;
+    
+  }
+  .custom-header {
+    text-align: center; /* Căn giữa chữ */
+    background-color: #4caf50; /* Màu nền (xanh lá cây nhạt) */
+    color: white; /* Màu chữ */
+    padding: 15px 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    font-family: Arial, sans-serif; /* Font chữ hiện đại */
+    font-size: 18px; /* Kích thước chữ */
+  }
+  

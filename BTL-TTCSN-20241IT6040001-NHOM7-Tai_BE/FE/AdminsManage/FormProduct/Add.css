@@ -1,0 +1,126 @@
+/* Tổng thể form */
+.form-container {
+  width: 40%; /* Giảm chiều rộng form */
+  max-width: 600px; /* Giới hạn chiều rộng tối đa */
+  padding: 30px; /* Thêm padding để form có không gian thoáng hơn */
+  background-color: #fff; /* Chọn màu nền sáng hơn để tạo sự tương phản */
+  border-radius: 10px; /* Góc bo tròn mềm mại hơn */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Làm shadow mềm mại và rõ nét hơn */
+  position: fixed; /* Đặt form ở vị trí cố định */
+  top: 20px; /* Đưa form lên trên cùng */
+  left: 50%;
+  transform: translateX(-50%); /* Căn giữa form ngang màn hình */
+  display: none; /* Mặc định ẩn form */
+  z-index: 1000; /* Đảm bảo form nằm trên các phần tử khác */
+  max-height: 80vh; /* Giới hạn chiều cao tối đa của form (80% chiều cao cửa sổ) */
+  overflow-y: auto; /* Tạo thanh cuộn khi nội dung quá dài */
+  background: #f9f9f9; /* Nền form nhẹ nhàng */
+  transition: all 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+}
+
+/* Tiêu đề form */
+#form-title {
+  text-align: center;
+  font-size: 24px; /* Tăng kích thước tiêu đề */
+  margin-bottom: 20px;
+  color: #444; /* Màu chữ đậm và dễ đọc */
+  font-weight: bold;
+}
+
+/* Các trường input trong form */
+.mb-3 {
+  margin-bottom: 20px; /* Tăng khoảng cách giữa các trường */
+}
+
+.form-label {
+  font-size: 16px; /* Tăng kích thước chữ của nhãn */
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px; /* Tăng padding cho input để dễ sử dụng */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Đổi màu biên giới khi focus */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Thêm hiệu ứng sáng bóng khi focus */
+}
+
+/* Nút thêm và hủy */
+#submit-btn, #cancel-btn {
+  padding: 10px 20px; /* Tăng kích thước nút */
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 10px 0; /* Tăng khoảng cách giữa các nút */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Thêm hiệu ứng cho nút */
+}
+
+/* Nút submit */
+#submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+#submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Tạo hiệu ứng nâng nút khi hover */
+}
+
+#submit-btn:active {
+  transform: translateY(1px); /* Tạo hiệu ứng nhấn nút khi click */
+}
+
+/* Nút hủy */
+#cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+#cancel-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+#cancel-btn:active {
+  transform: translateY(1px);
+}
+
+/* Khi form được mở ra, thêm hiệu ứng */
+.form-container.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hiệu ứng fade in khi form hiện ra */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px); /* Form sẽ bắt đầu từ trên */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Form sẽ dừng lại tại vị trí ban đầu */
+  }
+}
+
+/* Tối ưu form khi màn hình nhỏ */
+@media (max-width: 768px) {
+  .form-container {
+      width: 80%; /* Mở rộng form để dễ dàng sử dụng trên màn hình nhỏ */
+      max-width: none;
+  }
+  .form-control {
+      font-size: 16px; /* Tăng font size cho các input */
+  }
+}

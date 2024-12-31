@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="icon" href="assets/picture/logolmain.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Register.css"> <!-- Link đến file CSS -->
+   
+</head>
+<body class="d-flex align-items-center" style="height: 100vh;"> 
+
+    <div class="container">
+        <!-- Logo -->
+        <img src="assets/picture/logolmain.png" alt="Logo" class="logo"> 
+
+        <form class="mt-5" id="register-form" onsubmit="return register(event)">
+            <h2 class="text-center">Đăng ký tài khoản</h2>
+
+            <div class="form-group">
+                <label for="fullName">Họ và tên</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập họ và tên" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Số điện thoại</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Nhập số điện thoại" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+            <p class="text-center mt-3">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/RegisterAcount/Register.js"></script>
+</body>
+</html>

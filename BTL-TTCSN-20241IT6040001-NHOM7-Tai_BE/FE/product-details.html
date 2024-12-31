@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm</title>
+    <link rel="icon" href="assets/picture/logolmain.png" type="image/x-icon">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/product-details.css" />
+  </head>
+  <body>
+    <header class="" style="background-color:#cb1c22">
+      <div class="container ">
+        <div class="row header-custom">
+
+          <!-- Button Logo -->
+          <div class="col-2">
+            <a class="logo" href="">
+              <img
+                src="assets/picture/logolmain.png"
+                alt="Logo trang web"
+              />
+            </a>
+          </div>
+
+                    <!-- Button thanh tìm kiếm -->
+          <div class="col-5">
+            <div class="search-form">
+              <form id="frm-search" name="search" action="product-list.html" method="GET" >
+                <input
+                  type="text"
+                  placeholder="Bạn muốn tìm sản phẩm gì"
+                  name="q"
+                  id="stext"
+                  autocomplete="off"
+                  style="width: 90%;height:45px;";
+                />
+                <button type="submit" id="sbutton" style="width: 9%; height: 45px;">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+
+          <!-- Button infor User -->
+          <div class="col-2">
+            <div class="user-account" id="userAccount" tabindex="0">
+              <i
+                class="fa-solid fa-user"
+                style="width: 50px; height: 50px; font-size: 40px"
+              ></i>
+              <ul class="box-user" id="userMenu" style="display: none">
+                <li><a href="login.html" id="loginLink">Đăng nhập</a></li>
+                <li>
+                  <a href="My_Information/inforUserDetail_Main.html" id="userInfo" style="display: none"
+                    >Thông tin cá nhân
+                  </a>
+                </li>
+                <li>
+                  <a href="My_Information/My_Order.html" id="orders" style="display: none">Đơn hàng</a>
+                </li>
+                <li>
+                  <a href="#" id="logout" style="display: none">Đăng xuất</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Button liên hệ -->
+          <div class="col">
+            <div class="box-hotline">
+              <p class="hotline-text">
+                <i class="fa-solid fa-phone"></i>
+                <span style="color: rgb(0, 0, 0)">HOTLINE</span>
+              </p>
+              <p class="phone-number">0987589660</p>
+            </div>
+          </div>
+
+          <!-- Button giỏ hàng -->
+          <div class="col">
+            <div class="cart">
+              <a href="cart.html" id="cartLink">
+                <!-- Thay '/cart' bằng đường dẫn giỏ hàng của bạn -->
+                <i
+                  class="fa-solid fa-cart-shopping"
+                  style="font-size: 43px"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      
+      <div class="mb-1 d-flex justify-content-lg-start ms-5">
+        <span><a href="index.html">Trang chủ</a></span>
+        <span>/</span>
+        <span id="product-name-breadcrumb"></span>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 d-flex justify-content-end product-Image">
+            <img id="product-image" src="" alt="Ảnh sản phẩm" />
+          </div>
+          <div class="col-6 product-infor">
+            <h2 id="product-name">Tên sản phẩm</h2>
+            <p id="product-description">Mô tả sản phẩm</p>
+            <p id="product-price">Giá:</p>
+            <p id="product-status">Tình trạng:</p>
+            <button id="add-to-cart">
+                <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
+            </button>
+        </div>
+        
+          <div class="col-12">
+            <div class="specs-toggle d-flex ">
+              <div class="toggle-section" id="highlight-btn" >
+                Thông số nổi bật
+              </div>
+              <div class="toggle-section" id="all-spec-btn" >
+                Tất cả thông số
+              </div>
+            </div>
+          
+            <!-- Thông số nổi bật -->
+            <table class="highlight-specs specs-content" id="highlight-specs" >
+              <tbody>
+                <tr>
+                  <td>Công nghệ CPU</td>
+                  <td>Intel</td>
+                </tr>
+                <tr>
+                  <td>Dung lượng RAM</td>
+                  <td>8GB</td>
+                </tr>
+                <tr>
+                  <td>Card đồ họa</td>
+                  <td>RTX 3050</td>
+                </tr>
+                <tr>
+                  <td>Kích thước màn hình</td>
+                  <td>16 inch</td>
+                </tr>
+              </tbody>
+            </table>
+          
+           <!-- Tất cả thông số -->
+            <table class="all-specs specs-content hidden" id="all-specs">
+              <tbody>
+               
+              </tbody>
+            </table>
+
+            
+          </div>
+          
+          
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer-section">
+          <h3>Về chúng tôi</h3>
+          <p>
+            Laptop Store cung cấp các dòng laptop chất lượng cao, phục vụ mọi
+            nhu cầu từ học tập, làm việc cho đến gaming chuyên nghiệp.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Hỗ trợ khách hàng</h3>
+          <ul>
+            <li><a href="#">Chính sách bảo hành</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Giao hàng & Nhận hàng</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Liên hệ</h3>
+          <p><i class="fa-solid fa-phone"></i> Hotline: 0987589660</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> Email: support@laptopstore.com
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> Địa chỉ: 123 Đường ABC,
+            Quận XYZ, TP.HCM
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Theo dõi chúng tôi</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Laptop Store. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="assets/js/HomePage/productDetail.js"></script>
+    <script src="assets/js/HomePage/HomeManage/addProductToCart.js"></script>
+    <script src="assets/js/HomePage/HomeManage/statusLogin.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-custom{
+    display: flex;
+}
+.logo img{
+    margin-left:50px ;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+.search-form{
+    border-radius: 30px;
+    max-width: 600px;
+    flex-grow: 5;
+    margin-left: 50px;
+}

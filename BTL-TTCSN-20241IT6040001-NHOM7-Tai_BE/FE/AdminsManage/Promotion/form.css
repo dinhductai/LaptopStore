@@ -1,0 +1,60 @@
+/* Định dạng chung cho form */
+#add-promotion-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tạo khoảng cách giữa các trường thông tin */
+  #add-promotion-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Định dạng các label */
+  #add-promotion-form label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  /* Định dạng các input text và số */
+  #add-promotion-form input[type="text"],
+  #add-promotion-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  /* Định dạng button */
+  #add-promotion-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Thêm hiệu ứng hover cho button */
+  #add-promotion-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cải thiện form group và input khi focus */
+  #add-promotion-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Cải thiện form container */
+  .row.mt-5 {
+    margin-top: 50px;
+  }
+  

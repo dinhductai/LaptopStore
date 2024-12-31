@@ -1,0 +1,289 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: flex-start; /* Đảm bảo content bắt đầu từ vị trí hợp lý */
+    transition: margin-left 0.3s ease;
+    padding-left: 250px; /* Đẩy content sang phải khi sidebar mở */
+    width: 100%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+/* General Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Màu nền tổng thể */
+    color: #343a40; /* Màu chữ tổng thể */
+}
+
+/* Container for content */
+.container {
+    background-color: #ffffff; /* Màu nền của khu vực chứa nội dung */
+    border-radius: 10px; /* Bo tròn góc của container */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho container */
+}
+
+/* Card Styles */
+.card {
+    border: none; /* Xóa bỏ đường viền */
+    border-radius: 10px; /* Bo tròn góc của thẻ */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho thẻ */
+    background-color: #f9f9f9; /* Màu nền thẻ */
+}
+
+.card-header {
+    background-color: #ef4f5a; /* Màu nền của header */
+    color: white; /* Màu chữ của header */
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #ffffff; /* Màu nền của body */
+    color: #495057; /* Màu chữ của body */
+}
+
+/* Header text */
+.card-body h5, .card-body h6 {
+    color: #343a40; /* Màu chữ cho h5 và h6 */
+    font-size: 1.125rem; /* Kích thước chữ */
+    margin: 0;
+}
+
+/* Card hover effect */
+.card:hover {
+    background-color: #e9ecef; /* Màu nền khi hover vào thẻ */
+}
+
+/* Payment Method Styles */
+.card .border {
+    border-radius: 8px; /* Bo tròn các cạnh */
+    cursor: pointer;
+}
+
+.card .border:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover vào payment method */
+}
+
+.card .border .material-icons {
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #0f83ff; /* Màu cho icon khi hover */
+}
+img{
+    width: 20px;
+}
+/* Invoice Styles */
+.list-group-item {
+    border: none;
+    padding: 15px 10px;
+    background-color: #ffffff; /* Màu nền cho mỗi item trong danh sách */
+    color: #495057; /* Màu chữ của item */
+}
+
+.list-group-item h6 {
+    font-size: 0.9rem;
+    color: #343a40; /* Màu chữ cho header của mỗi invoice */
+}
+
+.list-group-item .btn-link i.material-icons {
+    font-size: 1rem;
+    color: #6c757d; /* Màu của icon trong invoice */
+}
+
+.list-group-item .btn-link:hover i.material-icons {
+    color: #007bff; /* Màu của icon khi hover */
+}
+
+/* Button Styles */
+.btn {
+    font-size: 0.875rem;
+    background-color: #007bff; /* Màu nền của button */
+    color: white; /* Màu chữ của button */
+    border: none;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Màu nền khi hover vào button */
+    color: #f8f9fa; /* Màu chữ khi hover */
+}
+
+/* Small Button Styles */
+.btn-sm {
+    font-size: 0.8rem;
+}
+
+/* Additional Background Gradient Styles */
+.bg-gradient-primary {
+    background: linear-gradient(87deg, #11cdef 0, #1171ef 100%); /* Màu nền gradient */
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(87deg, #232526, #414345); /* Màu nền gradient đen */
+    color: white; /* Màu chữ trắng trên nền gradient */
+}
+
+
+/* Định dạng cho danh sách các hóa đơn */
+.list-group-item {
+    background-color: #fff; /* Nền trắng */
+    border: 1px solid #ddd; /* Viền nhẹ */
+    border-radius: 8px; /* Bo tròn góc */
+    padding: 15px 20px; /* Khoảng cách bên trong */
+    margin-bottom: 10px; /* Khoảng cách giữa các mục */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động khi hover */
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa; /* Màu nền khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    transform: translateY(-5px); /* Nâng nhẹ khi hover */
+}
+
+/* Định dạng cho các mục trong danh sách hóa đơn */
+.list-group-item .order-Date {
+    font-size: 14px;
+    color: #6c757d; /* Màu xám nhẹ cho ngày đặt hàng */
+}
+
+.list-group-item #order-id {
+    font-size: 12px;
+    color: #007bff; /* Màu xanh lam cho ID đơn hàng */
+}
+
+.list-group-item #Total-Amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745; /* Màu xanh lá cho tổng tiền */
+}
+
+/* Định dạng cho danh sách chi tiết hóa đơn */
+.invoice-item {
+    background-color: #f9f9f9; /* Nền màu sáng */
+    border: 1px solid #ddd; /* Viền nhẹ */
+    border-radius: 8px; /* Bo tròn góc */
+    padding: 20px;
+    margin-bottom: 15px; /* Khoảng cách giữa các mục */
+    transition: all 0.3s ease;
+}
+
+.invoice-item:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.invoice-item h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Màu đen đậm cho tiêu đề */
+    margin-bottom: 10px;
+}
+
+.invoice-item p {
+    font-size: 14px;
+    color: #555; /* Màu chữ cho phần mô tả */
+    margin-bottom: 5px;
+}
+
+.invoice-item p strong {
+    color: #333; /* Màu chữ đậm cho các nhãn */
+}
+
+.invoice-item hr {
+    border: 0;
+    border-top: 1px solid #ddd; /* Viền mờ cho phân tách */
+    margin: 15px 0;
+}
+
+/* Định dạng cho các thông tin quan trọng trong chi tiết hóa đơn */
+.invoice-item p:last-child {
+    font-weight: bold;
+    color: #007bff; /* Màu xanh lam cho trạng thái đơn hàng */
+}
+
+/* Thêm thanh cuộn cho kho */
+#invoice-list-mini  {
+    max-height: 280px;  
+    overflow-y: auto;   
+    padding: 0;
+    margin: 0;
+  }
+  
+  #bill-list{
+    max-height: 600px;  
+    overflow-y: auto;   
+    padding: 0;
+    margin: 0;
+  } 
+  #invoice-list-mini li{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }

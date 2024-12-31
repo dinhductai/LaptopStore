@@ -1,0 +1,191 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: center;
+    transition: margin-left 0.3s ease;
+    padding-left: 0;
+    width: 100%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  #wrapper {
+    display: flex;
+  }
+  
+  #content-area {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
+/* Bảng nhà cung cấp */
+.table-nha-cung-cap {
+    /* width: 130%; */
+}
+/* End bảng nhà cung cấp */
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: #ec5489;
+    font-size: large;
+}
+/* End Breadcrumb */
+
+/* Nút thêm nhà cung cấp */
+button {
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #ec5489;
+    color: white;
+    border-radius: 5px;
+    margin-right: 0;
+  }
+
+  /* Cửa sổ nổi (modal) */
+  .modal {
+    display: none; /* Ẩn cửa sổ ban đầu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Làm mờ nền */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Nội dung bên trong modal */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  /* Hiệu ứng scale */
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Nút đóng */
+  .close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+  }
+  .close-btn:hover {
+    color: #000;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  form input, form select, form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  form button {
+    background-color: #ec5489;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+  form button:hover {
+    background-color: #bf426e;
+  }
+
+
+

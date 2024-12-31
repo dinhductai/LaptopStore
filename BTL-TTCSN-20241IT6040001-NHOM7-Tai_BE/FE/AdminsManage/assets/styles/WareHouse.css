@@ -1,0 +1,429 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: flex-start; /* Đảm bảo content bắt đầu từ vị trí hợp lý */
+    transition: margin-left 0.3s ease;
+    padding-left: 250px; /* Đẩy content sang phải khi sidebar mở */
+    width: 100%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+  
+  /* Đặt nội dung chính cách bên sidebar */
+/* General layout adjustments */
+#content-area {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    font-weight: bold;
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  /* Warehouse Info */
+  .Warehouse-infor li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  
+  #combobox {
+    width: 100%;
+  }
+  
+  /* Statistics section */
+  .row .card-body h6 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Product and Export/Import lists */
+  #productList, #exportList, #importList {
+    padding: 0;
+    list-style-type: none;
+  }
+  .list-group-flush .list-group-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Button toggle sidebar */
+  #menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background-color: #343a40;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    #content-area {
+      margin-left: 0;
+    }
+  
+    #menu-toggle {
+      position: relative;
+      margin-top: 10px;
+    }
+  }
+
+
+/* Form chỉnh sửa sản phẩm */
+#editProductForm {
+  display: none; /* Ẩn form theo mặc định */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 500px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung dài */
+  max-height: 80vh; /* Giới hạn chiều cao tối đa */
+}
+
+/* Các trường nhập liệu */
+#editProductForm .mb-3 {
+  margin-bottom: 15px;
+}
+
+#editProductForm label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#editProductForm .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+#editProductForm .form-control:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  outline: none;
+}
+
+
+
+/* CSS cho form chỉnh sửa kho */
+#editWarehouseForm {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editWarehouseForm .form-group {
+  margin-bottom: 15px;
+}
+
+#editWarehouseForm label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#editWarehouseForm input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#editWarehouseForm input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#editWarehouseForm .form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#editWarehouseForm .form-actions button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#saveButton {
+  background-color: #007bff;
+  color: white;
+}
+
+#saveButton:hover {
+  background-color: #0056b3;
+}
+
+#closeButton {
+  background-color: #f8f9fa;
+  color: #333;
+  margin-left: 10px;
+}
+
+#closeButton:hover {
+  background-color: #e2e6ea;
+}
+
+#editWarehouseForm input[type="text"]:invalid {
+  border-color: red;
+}
+
+
+/* 
+/* Cấu trúc chung cho kho thông tin */
+#warehouseInfo {
+  margin-bottom: 20px;
+  background-color: #f8f9fa; /* Nền sáng cho khu vực thông tin kho */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+#warehouseInfo div {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#warehouseInfo span {
+  font-weight: bold;
+}
+
+/* Combobox */
+#combobox {
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Danh sách sản phẩm */
+#productList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#productList li {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+#productList li:hover {
+  background-color: #f1f1f1; /* Màu nền khi hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+#productList img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#productList span {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+#productList button {
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#productList button:hover {
+  background-color: #e0a800;
+}
+
+/* Phiếu xuất kho */
+#exportList, #importList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#exportList li, #importList li {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#exportList li:hover, #importList li:hover {
+  background-color: #f1f1f1; /* Màu nền khi hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+#exportList img, #importList img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#exportList span, #importList span {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+#exportList li span, #importList li span {
+  margin-left: 10px;
+}
+
+/* Tổng số lượng sản phẩm */
+#productQuantity, #productExportQuantity, #productImportQuantity {
+  font-weight: bold;
+  font-size: 16px;
+  color: #28a745; /* Màu xanh lá */
+}
+
+#productQuantity {
+  color: #007bff; /* Màu xanh dương */
+}
+
+#productExportQuantity, #productImportQuantity {
+  color: #ffc107; /* Màu vàng */
+}
+
+/* Thêm thanh cuộn cho kho */
+#exportList, #importList {
+  max-height: 280px;  
+  overflow-y: auto;   
+  padding: 0;
+  margin: 0;
+}
+
+#exportList li, #importList li ,#productlist li{
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+#productList{
+  max-height: 500px;  
+  overflow-y: auto;   
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+  

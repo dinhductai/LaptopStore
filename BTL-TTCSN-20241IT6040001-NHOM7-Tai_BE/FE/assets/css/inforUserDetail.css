@@ -1,0 +1,99 @@
+:root {
+    --color-background : #eee
+    --color-main : rgba(241, 18, 18, 0.884) ;
+}
+
+body{
+    background-color: var(--color-background);
+}
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+/* Khối tóm tắt thông tin khách hàng */
+.summerize-infor-user {
+    display: flex;
+    align-items: center;
+    border: var(--color-background);
+    border-radius: 4%;
+    justify-content: space-around;
+    padding: 1%;
+    float: left;
+}
+
+.summerize-infor-user .inner-user-box {
+    font-size: larger;
+}
+
+
+/* End khối tóm tắt thông tin khách hàng */
+
+/* Khối điều hướng màn hình */
+.box-main {
+    margin-top: -26%;
+}
+
+.box-item {
+    border-radius: 4%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin: 15% 0;
+    padding: 5% 0;
+    font-size: larger;
+}
+
+.box-item i {
+
+}
+
+.box-item a {
+    text-decoration: none;
+}
+/* End khối điều hướng màn hình */
+
+/* Khối quản lý thông tin cá nhân */
+.box-content{
+    margin-left: 28%;
+    margin-top: -7%;
+}
+
+.box-content .box-content-main {
+    text-align: center;
+    padding: 5%;
+}
+
+.box-content .box-content-main .box-content-item {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+}
+
+.box-content .box-content-item p {
+    margin-right: 25%;
+}
+/* End khối quản lý thông tin cá nhân */
+

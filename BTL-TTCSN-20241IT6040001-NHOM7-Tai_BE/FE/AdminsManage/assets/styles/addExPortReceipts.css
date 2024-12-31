@@ -1,0 +1,66 @@
+/* Định dạng chung cho modal */
+#exportFormModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  #exportFormModal .modal-content {
+    background-color: #fdf6f0;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Nút đóng modal */
+  #closeExportModal {
+    color: #333;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #closeExportModal:hover {
+    color: #ff0000;
+  }
+  
+  /* Các nhãn và trường input */
+  #exportForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  #exportForm input[type="text"],
+  #exportForm input[type="number"],
+  #exportForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Nút gửi */
+  #exportForm .btn-primary {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #exportForm .btn-primary:hover {
+    background-color: #e68900;
+  }
+  

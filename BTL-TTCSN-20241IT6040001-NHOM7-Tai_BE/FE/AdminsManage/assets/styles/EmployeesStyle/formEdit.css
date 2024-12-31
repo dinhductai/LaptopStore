@@ -1,0 +1,39 @@
+/* Styling for Edit Employee Modal */
+#editEmployeeModal .modal-content {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#editEmployeeModal .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+#editEmployeeForm .form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+#editEmployeeForm .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+#editEmployeeForm .btn-primary {
+    background-color: #28a745;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+#editEmployeeForm .btn-primary:hover {
+    background-color: #218838;
+}

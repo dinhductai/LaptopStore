@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <script src="assets/js/Cart/cart_SubmitOrder.js" defer></script> 
+    <script src="assets/js/Cart/cart.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+</head>
+<body>
+    <header class="" style="background-color:#cb1c22">
+        <div class="container ">
+          <div class="row header-custom">
+  
+            <!-- Button Logo -->
+            <div class="col-2">
+              <a class="logo" href="">
+                <img
+                  src="assets/picture/logolmain.png"
+                  alt="Logo trang web"
+                />
+              </a>
+            </div>
+  
+                      <!-- Button thanh tìm kiếm -->
+            <div class="col-5">
+              <div class="search-form">
+                <form id="frm-search" name="search" action="product-list.html" method="GET" >
+                  <input
+                    type="text"
+                    placeholder="Bạn muốn tìm sản phẩm gì"
+                    name="q"
+                    id="stext"
+                    autocomplete="off"
+                    style="width: 90%;height:45px;";
+                  />
+                  <button type="submit" id="sbutton" style="width: 9%; height: 45px;">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+  
+  
+            <!-- Button infor User -->
+            <div class="col-2">
+              <div class="user-account" id="userAccount" tabindex="0">
+                <i
+                  class="fa-solid fa-user"
+                  style="width: 50px; height: 50px; font-size: 40px"
+                ></i>
+                <ul class="box-user" id="userMenu" style="display: none">
+                  <li><a href="login.html" id="loginLink">Đăng nhập</a></li>
+                  <li>
+                    <a href="My_Information/inforUserDetail_Main.html" id="userInfo" style="display: none"
+                      >Thông tin cá nhân
+                    </a>
+                  </li>
+                  <li>
+                    <a href="My_Information/My_Order.html" id="orders" style="display: none">Đơn hàng</a>
+                  </li>
+                  <li>
+                    <a href="#" id="logout" style="display: none">Đăng xuất</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <!-- Button liên hệ -->
+            <div class="col">
+              <div class="box-hotline">
+                <p class="hotline-text">
+                  <i class="fa-solid fa-phone"></i>
+                  <span style="color: rgb(0, 0, 0)">HOTLINE</span>
+                </p>
+                <p class="phone-number">0987589660</p>
+              </div>
+            </div>
+  
+            <!-- Button giỏ hàng -->
+            <div class="col">
+              <div class="cart">
+                <a href="cart.html" id="cartLink">
+                  <!-- Thay '/cart' bằng đường dẫn giỏ hàng của bạn -->
+                  <i
+                    class="fa-solid fa-cart-shopping"
+                    style="font-size: 43px"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <nav class="breadcrumb text-center mt-2">
+      <a href="index.html" class="btn btn-primary btn-lg shadow" role="button">
+        <span class="breadcrumb-icon">&#x2190;</span> Trang chủ
+      </a>
+      <div class="cart-button-container">
+        <button class="btn btn-secondary btn-lg shadow" id="gioHangLable" onclick="location.reload()">Giỏ hàng</button>
+      </div>
+    </nav>
+    
+    
+  
+
+    <div class="container2">
+        
+        <div class="select-all-container">
+            <label for="selectAll" class="select-all-label">
+                <input type="checkbox" id="selectAll" onclick="toggleSelectAll()"> Chọn tất cả
+            </label>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th>STT</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá (VNĐ)</th>
+                    <th>Số Lượng</th>
+                    <th>Tổng</th>
+                    <th>Xóa</th>
+                    <th>Xem Chi Tiết</th>
+                </tr>
+            </thead>
+            <tbody id="product-list"></tbody>
+        </table>
+
+        <div class="thanhToan_selectPromotion">
+            <div class="thanhToan">
+                <h3>Tổng Cộng: <span class="total-amount">0 VND</span></h3>
+                <h3>Khuyến Mãi: <span id="tong-khuyen-mai" class="discount-amount">0 VND</span></h3>
+                <h3>Thanh Toán: <span id="tien-phai-thanh-toan" class="total-price">0 VND</span></h3>
+            </div>
+            
+    
+            <div class="comboBoxPromotion">
+                <select class="promotion-select" id="promotionComboBox">
+                    <option value="">-- Chưa áp dụng khuyến mãi --</option>
+                    <!-- Các lựa chọn khác -->
+                </select>
+            </div>
+            
+            
+            
+        </div>
+
+        <div class="form-container2">
+            <div class="cart-left">
+                <div class="box-cart">
+                    <div class="title-box-cart">1. Khách hàng chọn địa chỉ nhận hàng</div>
+                    <div class="content-box-cart">
+                        <b>Thông tin địa chỉ</b><br>
+                        <span>*Chọn ít nhất 1 địa chỉ để nhận hàng</span>
+                        <div class="space10"></div>
+                        <table id="address-table">
+                            <thead>
+                                <tr>
+                                    <th>Đường</th>
+                                    <th>Phường/Xã</th>
+                                    <th>Quận/Huyện</th>
+                                    <th>Thành phố</th>
+                                    <th>Chọn</th>
+                                </tr>
+                            </thead>
+                            <tbody id="address-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-right">
+                <div class="box-cart2">
+                    <div class="title-box-cart">2. Chọn phương thức thanh toán</div>
+                    <div class="content-box-cart2">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Phương thức thanh toán</th>
+                                    <th>Chọn</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentMethodsTable">
+                                <tr>
+                                    <td>Online</td>
+                                    <td><input type="radio" name="paymentMethod" value="card"></td>
+                                </tr>
+                                <tr>
+                                    <td>Offline</td>
+                                    <td><input type="radio" name="paymentMethod" value="cash"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-actions-single">
+                    <button  type="submit" id="btn-submit" class="action-button green">Gửi đơn hàng</button>
+                    <input type="hidden" name="send_order" value="yes">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* header */
+/* Logo */
+/* Định dạng chung cho layout với Bootstrap */
+
+
+/* Header */
+.header-custom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap; /* Để cho các phần tử có thể xuống dòng khi không đủ không gian */
+}
+
+/* Logo */
+.logo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* Form tìm kiếm */
+.seach-form {
+  flex-grow: 5;
+  max-width: 500px;
+  margin-left: 20px;
+  flex-basis: 100%; /* Thay đổi để chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+}
+
+#stext {
+  width: 100%;
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+#sbutton {
+  background-color: #050606;
+  border: none;
+  padding: 0px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  color: white;
+}
+
+#sbutton i {
+  font-size: 16px;
+}
+
+#sbutton:hover {
+  background-color: #0056b3;
+}
+
+/* Tài khoản người dùng */
+.user-account {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-account i {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.user-account i:hover {
+  color: #007bff; /* Đổi màu biểu tượng khi hover */
+}
+
+/* Menu user */
+.box-user {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  list-style: none;
+  padding: 10px;
+  width: 200px;
+  z-index: 999;
+}
+
+.box-user li {
+  padding: 10px 0;
+}
+
+.box-user li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.box-user li a:hover {
+  color: #007bff;
+}
+
+#loginLink {
+  color: #007bff;
+  font-weight: bold;
+  text-align: center;
+}
+
+#loginLink:hover {
+  text-decoration: underline;
+}
+
+.user-account:focus-within .box-user,
+.user-account:hover .box-user {
+  display: block;
+}
+
+/* Box Hotline */
+.box-hotline {
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.hotline-text {
+  display: flex;
+  align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
+  justify-content: center; /* Căn giữa toàn bộ phần tử */
+  margin-bottom: 5px; /* Khoảng cách giữa "HOTLINE" và số điện thoại */
+}
+
+.phone-number {
+  font-size: 1.2rem; /* Kích thước của số điện thoại */
+  font-weight: bold; /* Đậm hơn để nổi bật */
+  color: #000; /* Màu của số điện thoại */
+}
+
+/* Giỏ hàng */
+.cart {
+  margin-left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart i {
+  font-size: 43px;
+  color: #333;
+}
+
+.cart:hover i {
+  color: #007bff;
+}
+    </style>
+
+    
+    <script src="assets/js/HomePage/HomeManage/statusLogin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://esgoo.net/scripts/jquery.js"></script>
+</body>
+</html>

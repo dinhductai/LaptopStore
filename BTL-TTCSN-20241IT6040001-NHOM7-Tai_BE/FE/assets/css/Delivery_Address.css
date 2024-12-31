@@ -1,0 +1,140 @@
+:root {
+    --color-background : #eee ;
+    --color-main : rgba(241, 18, 18, 0.884) ;
+}
+
+body{
+    background-color: var(--color-background);
+}
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--color-background);
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+/* Khối tóm tắt thông tin khách hàng */
+.summerize-infor-user {
+    /* display: flex; */
+    align-items: center;
+    border: var(--color-main);
+    border-radius: 4%;
+    justify-content: space-around;
+    padding: 1%;
+    float: left;
+}
+
+.summerize-infor-user .infor-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.summerize-infor-user .inner-user-box {
+    font-size: larger;
+}
+
+.summerize-infor-user .infor-box a:hover {
+    color: white;
+    background-color: var(--color-main);
+}
+
+
+/* End khối tóm tắt thông tin khách hàng */
+
+/* Khối điều hướng màn hình */
+/* .box-main { */
+    /* margin-top: -26%; */
+/* } */
+
+.box-item {
+    border-radius: 4%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin: 15% 0;
+    padding: 5% 0;
+    font-size: larger;
+}
+
+/* .box-item i {
+
+} */
+
+.box-item a {
+    text-decoration: none;
+}
+
+.box-main .box-item:hover {
+    color: white;
+    background-color: var(--color-main);
+    margin-left: 10px; /* Khoảng cách ban đầu giữa button và các item */
+    transition: transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi mượt */
+}
+
+.box-main .box-item:hover a {
+    color: white;
+}
+
+/* Khối quản lý đơn hàng của tôi */
+.box-manage-order{
+    margin-left: 28%;
+    /* margin-top: -7%;  */
+    border-radius: 3%;
+}
+
+.box-manage-order .box-content-main {
+    text-align: center;
+    padding: 5%;
+}
+
+.box-manage-order .box-content-main .box-content-item {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+}
+
+.box-manage-order .box-content-item p {
+    margin-right: 25%;
+    
+}
+
+/* End khối quản lý đơn hàng của tôi */
+
+/* box wrapper-address */
+.wrapper-address {
+    width: auto;
+}
+
+.wrapper-address .fa-solid {
+    width: 120%;
+    height: 120%;
+}
+
+.wrapper-address .sdt-nguoi-nhan,.dia-chi-nguoi-nhan {
+    color: deepskyblue;
+    font-weight: bolder;
+    font-size: larger;
+    margin-left: 2%;
+}
+/* End box wrapper-address */

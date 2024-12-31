@@ -1,0 +1,440 @@
+/* Reset các thiết lập mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  /* Header */
+  /* header */
+/* Logo */
+/* Định dạng chung cho layout với Bootstrap */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px; /* Thêm padding để nội dung không bị chèn vào cạnh */
+}
+
+/* Header */
+.header-custom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap; /* Để cho các phần tử có thể xuống dòng khi không đủ không gian */
+}
+
+/* Logo */
+.logo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* Form tìm kiếm */
+.seach-form {
+  flex-grow: 5;
+  max-width: 500px;
+  margin-left: 20px;
+  flex-basis: 100%; /* Thay đổi để chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+}
+
+#stext {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+#sbutton {
+  background-color: #050606;
+  border: none;
+  padding: 10px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  color: white;
+}
+
+#sbutton i {
+  font-size: 16px;
+}
+
+#sbutton:hover {
+  background-color: #0056b3;
+}
+
+/* Tài khoản người dùng */
+.user-account {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-account i {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.user-account i:hover {
+  color: #007bff; /* Đổi màu biểu tượng khi hover */
+}
+
+/* Menu user */
+.box-user {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  list-style: none;
+  padding: 10px;
+  width: 200px;
+  z-index: 999;
+}
+
+.box-user li {
+  padding: 10px 0;
+}
+
+.box-user li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.box-user li a:hover {
+  color: #007bff;
+}
+
+#loginLink {
+  color: #007bff;
+  font-weight: bold;
+  text-align: center;
+}
+
+#loginLink:hover {
+  text-decoration: underline;
+}
+
+.user-account:focus-within .box-user,
+.user-account:hover .box-user {
+  display: block;
+}
+
+/* Box Hotline */
+.box-hotline {
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.hotline-text {
+  display: flex;
+  align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
+  justify-content: center; /* Căn giữa toàn bộ phần tử */
+  margin-bottom: 5px; /* Khoảng cách giữa "HOTLINE" và số điện thoại */
+}
+
+.phone-number {
+  font-size: 1.2rem; /* Kích thước của số điện thoại */
+  font-weight: bold; /* Đậm hơn để nổi bật */
+  color: #000; /* Màu của số điện thoại */
+}
+
+/* Giỏ hàng */
+.cart {
+  margin-left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart i {
+  font-size: 43px;
+  color: #333;
+}
+
+.cart:hover i {
+  color: #007bff;
+}
+
+/* Responsive chỉnh sửa cho mobile */
+@media (max-width: 768px) {
+  .header-custom {
+    flex-direction: column; /* Để các phần tử xếp chồng lên nhau */
+    align-items: flex-start; /* Căn lề trái cho tất cả các phần tử */
+  }
+
+  .seach-form {
+    margin-left: 0; /* Bỏ margin trái trên màn hình nhỏ */
+    flex-basis: 100%; /* Cho phép form tìm kiếm chiếm toàn bộ chiều rộng */
+  }
+
+  .user-account,
+  .box-hotline,
+  .cart {
+    margin-left: 0; /* Bỏ margin trái trên màn hình nhỏ */
+    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    text-align: center; /* Căn giữa cho tất cả các phần tử */
+  }
+
+  .box-user {
+    right: auto;
+    left: 0;
+    width: 100%; /* Đảm bảo menu user chiếm toàn bộ chiều rộng */
+  }
+
+  .box-user li {
+    text-align: left;
+    padding: 8px 20px; /* Tăng padding cho dễ nhấn trên màn hình nhỏ */
+  }
+}
+
+
+  /* Header */
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+/* Image product */
+  
+  #product-image{
+    width: 570px;
+    border-radius: 20px;
+   
+  }
+/* Image product */
+/* Thông tin sản phẩm  */
+.product-infor {
+  
+  padding:  20px 0; 
+  margin-left: 20px;
+  max-width: 500px; 
+  
+  font-family: Arial, sans-serif; 
+}
+
+#product-name {
+  font-size: 24px; 
+  color: #333; 
+  margin-bottom: 10px; 
+}
+
+#product-description {
+  font-size: 16px; 
+  color: #555; 
+  margin-bottom: 15px; 
+}
+
+#product-price {
+  font-size: 20px;
+  color: #2ecc71; 
+  font-weight: bold; 
+  margin-bottom: 15px; 
+}
+
+#product-status {
+  font-size: 16px; 
+  color: #e74c3c; 
+  margin-bottom: 20px; 
+}
+/* thêm giỏ hàng */
+#add-to-cart {
+  display: flex; 
+  align-items: center; 
+  background-color: #de2d12;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#add-to-cart i {
+  margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
+
+#add-to-cart:hover {
+  background-color: #912a2a;
+}
+
+  /* Thông tin sản phẩm  */
+
+  /* Thông số */
+ /* Đảm bảo bảng hiển thị đúng */
+ 
+.specs-content {
+  width: 100%;
+  border-collapse: collapse; 
+  table-layout: fixed; 
+  margin-top: 15px;
+}
+
+.specs-content td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  word-wrap: break-word; 
+}
+
+.specs-content th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Canh chỉnh hai nút "Thông số nổi bật" và "Tất cả thông số" */
+.specs-toggle {
+margin-top: 20px;
+margin-bottom: 0;
+}
+
+.toggle-section {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  font-family: inherit;
+  padding: 10px;
+  
+  width: 20%;
+  text-align: center;
+  border-bottom: none; /* Không có đường viền đáy mặc định */
+}
+
+.toggle-section.active {
+  border-bottom: 3px solid #ee2c2c; /* Đường viền đáy khi được kích hoạt */
+}
+ 
+  /* Thông số */
+
+  /* Bộ lọc */
+
+/* footer */
+/* Định dạng chung cho footer */
+footer {
+  
+  color: #050404;
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #080807;
+}
+
+.footer-section p, .footer-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #050101;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #ffcc00;
+}
+
+.footer-section p i {
+  margin-right: 10px;
+}
+
+/* Định dạng các biểu tượng mạng xã hội */
+.social-links {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  list-style: none;
+}
+
+.social-links li a {
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-links li a:hover {
+  color: #ffcc00;
+}
+
+/* Định dạng phần cuối của footer */
+.footer-bottom {
+  background-color: #1f1f1f;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #ffffff;
+}
+
+.footer-bottom p::before {
+  content: "© ";
+}
+
+@media (max-width: 768px) {
+  footer .container {
+      flex-direction: column;
+  }
+}
+/* footer */
+  
+  
+  

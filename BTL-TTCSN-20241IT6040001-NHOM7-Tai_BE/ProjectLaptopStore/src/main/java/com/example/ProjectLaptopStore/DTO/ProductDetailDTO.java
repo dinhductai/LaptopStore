@@ -1,0 +1,158 @@
+package com.example.ProjectLaptopStore.DTO;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.relational.core.sql.In;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Getter
+@Setter
+public class ProductDetailDTO {
+    private Integer productId;
+    private Integer supplierId;
+    private String productName;
+    private String productBrand;
+    private String model;
+    private Float price;
+    private Integer stockQuantity;
+    private Date releaseDate;
+    private Integer warrantyPeriod;
+    private String imageUrl;
+    private Integer productDescriptionId;
+//    private Integer productIdOfDescrip;
+    private String cpuCompany;
+    private String cpuTechnology;
+    private String cpuType;
+    private BigDecimal minimumCPUspeed;
+    private BigDecimal maximunSpeed;
+    private Integer multiplier;
+    private String processorCache;
+    private String brandCardOboard;
+    private String modelCardOboard;
+    private String fullNameCardOboard;
+    private String vgaBrand;
+    private String vgaFullName;
+    private Integer ramCapacity;
+    private String ramType;
+    private String ramSpeed;
+    private Integer numberOfRemovableSlots;
+    private Integer numberOfOnboardRAM;
+    private Integer maximumRAMSupport;
+    private String hardDriveType;
+    private Integer totalSSDHDDSlots;
+    private Integer numberOfSSDHDDSlotsRemaining;
+    private Integer maximumHardDriveUpgradeCapacity;
+    private String ssdType;
+    private Integer capacity;
+    private String screenSize;
+    private String displayTechnology;
+    private String resolution;
+    private String screenType;
+    private String scanningFrequency;
+    private String basePlate;
+    private Integer brightness;
+    private String colorCoverage;
+    private BigDecimal screenRatio;
+    private String communicationPort;
+    private String wifi;
+    private String bluetooth;
+    private String webcam;
+    private String os;
+    private String version;
+    private String security;
+    private String keyboardType;
+    private Boolean numericKeypad;
+    private String keyboardLight;
+    private String touchPad;
+    private String batteryType;
+    private Integer batteryCapacity;
+    private String powerSupply;
+    private String accessoriesInTheBox;
+    private Float size;
+    private BigDecimal productWeight;
+    private String material;
+    private String pnProductCode;
+    private String origin;
+    private Integer warrantyPeriodMonths;
+    private String storageInstructions;
+    private String userManual;
+    private String color;
+
+    public ProductDetailDTO() {
+    }
+
+
+    public ProductDetailDTO(Integer productId, Integer supplierId, String productName, String productBrand, String model, Float price, Integer stockQuantity, Date releaseDate, Integer warrantyPeriod, String imageUrl, Integer productDescriptionId, String cpuCompany, String cpuTechnology, String cpuType, BigDecimal minimumCPUspeed, BigDecimal maximunSpeed, Integer multiplier, String processorCache, String brandCardOboard, String modelCardOboard, String fullNameCardOboard, String vgaBrand, String vgaFullName, Integer ramCapacity, String ramType, String ramSpeed, Integer numberOfRemovableSlots, Integer numberOfOnboardRAM, Integer maximumRAMSupport, String hardDriveType, Integer totalSSDHDDSlots, Integer numberOfSSDHDDSlotsRemaining, Integer maximumHardDriveUpgradeCapacity, String ssdType, Integer capacity, String screenSize, String displayTechnology, String resolution, String screenType, String scanningFrequency, String basePlate, Integer brightness, String colorCoverage, BigDecimal screenRatio, String communicationPort, String wifi, String bluetooth, String webcam, String os, String version, String security, String keyboardType, Boolean numericKeypad, String keyboardLight, String touchPad, String batteryType, Integer batteryCapacity, String powerSupply, String accessoriesInTheBox, Float size, BigDecimal productWeight, String material, String pnProductCode, String origin, Integer warrantyPeriodMonths, String storageInstructions, String userManual, String color) {
+        this.productId = productId;
+        this.supplierId = supplierId;
+        this.productName = productName;
+        this.productBrand = productBrand;
+        this.model = model;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+        this.releaseDate = releaseDate;
+        this.warrantyPeriod = warrantyPeriod;
+        this.imageUrl = imageUrl;
+        this.productDescriptionId = productDescriptionId;
+        this.cpuCompany = cpuCompany;
+        this.cpuTechnology = cpuTechnology;
+        this.cpuType = cpuType;
+        this.minimumCPUspeed = minimumCPUspeed;
+        this.maximunSpeed = maximunSpeed;
+        this.multiplier = multiplier;
+        this.processorCache = processorCache;
+        this.brandCardOboard = brandCardOboard;
+        this.modelCardOboard = modelCardOboard;
+        this.fullNameCardOboard = fullNameCardOboard;
+        this.vgaBrand = vgaBrand;
+        this.vgaFullName = vgaFullName;
+        this.ramCapacity = ramCapacity;
+        this.ramType = ramType;
+        this.ramSpeed = ramSpeed;
+        this.numberOfRemovableSlots = numberOfRemovableSlots;
+        this.numberOfOnboardRAM = numberOfOnboardRAM;
+        this.maximumRAMSupport = maximumRAMSupport;
+        this.hardDriveType = hardDriveType;
+        this.totalSSDHDDSlots = totalSSDHDDSlots;
+        this.numberOfSSDHDDSlotsRemaining = numberOfSSDHDDSlotsRemaining;
+        this.maximumHardDriveUpgradeCapacity = maximumHardDriveUpgradeCapacity;
+        this.ssdType = ssdType;
+        this.capacity = capacity;
+        this.screenSize = screenSize;
+        this.displayTechnology = displayTechnology;
+        this.resolution = resolution;
+        this.screenType = screenType;
+        this.scanningFrequency = scanningFrequency;
+        this.basePlate = basePlate;
+        this.brightness = brightness;
+        this.colorCoverage = colorCoverage;
+        this.screenRatio = screenRatio;
+        this.communicationPort = communicationPort;
+        this.wifi = wifi;
+        this.bluetooth = bluetooth;
+        this.webcam = webcam;
+        this.os = os;
+        this.version = version;
+        this.security = security;
+        this.keyboardType = keyboardType;
+        this.numericKeypad = numericKeypad;
+        this.keyboardLight = keyboardLight;
+        this.touchPad = touchPad;
+        this.batteryType = batteryType;
+        this.batteryCapacity = batteryCapacity;
+        this.powerSupply = powerSupply;
+        this.accessoriesInTheBox = accessoriesInTheBox;
+        this.size = size;
+        this.productWeight = productWeight;
+        this.material = material;
+        this.pnProductCode = pnProductCode;
+        this.origin = origin;
+        this.warrantyPeriodMonths = warrantyPeriodMonths;
+        this.storageInstructions = storageInstructions;
+        this.userManual = userManual;
+        this.color = color;
+    }
+}

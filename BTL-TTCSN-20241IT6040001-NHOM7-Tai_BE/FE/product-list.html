@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách sản phẩm</title>
+    <link rel="icon" href="assets/picture/logolmain.png" type="image/x-icon">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="assets/css/product_list.css" />
+  </head>
+  <body>
+    <header class="" style="background-color:#cb1c22">
+      <div class="container ">
+        <div class="row header-custom">
+
+          <!-- Button Logo -->
+          <div class="col-2">
+            <a class="logo" href="">
+              <img
+                src="assets/picture/logolmain.png"
+                alt="Logo trang web"
+              />
+            </a>
+          </div>
+
+                    <!-- Button thanh tìm kiếm -->
+          <div class="col-5">
+            <div class="search-form">
+              <form id="frm-search" name="search" action="product-list.html" method="GET" >
+                <input
+                  type="text"
+                  placeholder="Bạn muốn tìm sản phẩm gì"
+                  name="q"
+                  id="stext"
+                  autocomplete="off"
+                  style="width: 90%;height:45px;";
+                />
+                <button type="submit" id="sbutton" style="width: 9%; height: 45px;">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+
+          <!-- Button infor User -->
+          <div class="col-2">
+            <div class="user-account" id="userAccount" tabindex="0">
+              <i
+                class="fa-solid fa-user"
+                style="width: 50px; height: 50px; font-size: 40px"
+              ></i>
+              <ul class="box-user" id="userMenu" style="display: none">
+                <li><a href="login.html" id="loginLink">Đăng nhập</a></li>
+                <li>
+                  <a href="My_Information/inforUserDetail_Main.html" id="userInfo" style="display: none"
+                    >Thông tin cá nhân
+                  </a>
+                </li>
+                <li>
+                  <a href="My_Information/My_Order.html" id="orders" style="display: none">Đơn hàng</a>
+                </li>
+                <li>
+                  <a href="#" id="logout" style="display: none">Đăng xuất</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Button liên hệ -->
+          <div class="col">
+            <div class="box-hotline">
+              <p class="hotline-text">
+                <i class="fa-solid fa-phone"></i>
+                <span style="color: rgb(0, 0, 0)">HOTLINE</span>
+              </p>
+              <p class="phone-number">0987589660</p>
+            </div>
+          </div>
+
+          <!-- Button giỏ hàng -->
+          <div class="col">
+            <div class="cart">
+              <a href="cart.html" id="cartLink">
+                <!-- Thay '/cart' bằng đường dẫn giỏ hàng của bạn -->
+                <i
+                  class="fa-solid fa-cart-shopping"
+                  style="font-size: 43px"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="mb-1 d-flex justify-content-lg-start ms-5">
+          <span><a href="index.html">Trang chủ</a></span>
+          <span>/</span>
+          <span >Laptop</span>
+        </div>
+        <h2 class="text-center">Danh sách sản phẩm tìm kiếm</h2>
+        <div class="container-large">
+          <div class="row banner-custom">
+            <div class="col-9 img-fluid-item1">
+              <img
+                src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/H1_f49ec311b6.png"
+                alt=""
+              />
+              <img
+                src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/1440x242_354d6a14aa.jpg"
+                alt=""
+              />
+              <img
+                src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/H1_1440x242_16d56b30fc.png"
+                alt=""
+              />
+              <img
+                src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/H1_862abb115e.png"
+                alt=""
+              />
+              <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+              <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <div id="searchResults"></div>
+          
+
+          <div class="row">
+               <!-- Bộ lọc tìm kiếm -->
+               <div class="col-md-3">
+                <div class="filter-container">
+                  <h2>Bộ lọc tìm kiếm</h2>
+                  <form id="filter-form">
+            
+                    <div class="filter-group">
+                      <h4>
+                        Hãng sản xuất: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('brand-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="brand-filter" style="display: none;">
+                        <label><input type="checkbox" name="brand" value="asus"> Asus</label><br>
+                        <label><input type="checkbox" name="brand" value="apple"> Apple</label><br>
+                        <label><input type="checkbox" name="brand" value="acer"> Acer</label><br>
+                        <label><input type="checkbox" name="brand" value="dell"> Dell</label><br>
+                        <label><input type="checkbox" name="brand" value="hp"> HP</label><br>
+                        <label><input type="checkbox" name="brand" value="lenovo"> Lenovo</label><br>
+                        <label><input type="checkbox" name="brand" value="msi"> MSI</label><br>
+                        <label><input type="checkbox" name="brand" value="gigabyte"> Gigabyte</label><br>
+                      </div>
+                    </div>
+            
+                    <div class="filter-group">
+                      <h4>
+                        Mức giá: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('price-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="price-filter" style="display: none;">
+                        <label><input type="checkbox" name="price" value="0-10"> Dưới 10 triệu</label><br>
+                        <label><input type="checkbox" name="price" value="10-15"> Từ 10 đến 15 triệu</label><br>
+                        <label><input type="checkbox" name="price" value="15-20"> Từ 15 đến 20 triệu</label><br>
+                        <label><input type="checkbox" name="price" value="20-25"> Từ 20 đến 25 triệu</label><br>
+                        <label><input type="checkbox" name="price" value="30"> Trên 30 triệu</label><br>
+                      </div>
+                    </div>
+            
+                    <div class="filter-group">
+                      <h4>
+                        Công nghệ CPU: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('cpu-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="cpu-filter" style="display: none;">
+                        <label><input type="checkbox" name="cpu" value="intel celeron"> Intel Celeron</label><br>
+                        <label><input type="checkbox" name="cpu" value="intel core ultra"> Intel Core Ultra</label><br>
+                        <label><input type="checkbox" name="cpu" value="intel core i5"> Intel Core i5</label><br>
+                        <label><input type="checkbox" name="cpu" value="intel core i7"> Intel Core i7</label><br>
+                        <label><input type="checkbox" name="cpu" value="intel core i3"> Intel Core i3</label><br>
+                        <label><input type="checkbox" name="cpu" value="amd ryzen 7"> AMD Ryzen 7</label><br>
+                        <label><input type="checkbox" name="cpu" value="amd ryzen 5"> AMD Ryzen 5</label><br>
+                      </div>
+                    </div>
+            
+            
+                    <div class="filter-group">
+                      <h4>
+                        RAM: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('ram-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="ram-filter" style="display: none;">
+                        <label><input type="checkbox" name="ram" value="4"> 4GB</label><br>
+                        <label><input type="checkbox" name="ram" value="8"> 8GB</label><br>
+                        <label><input type="checkbox" name="ram" value="16"> 16GB</label><br>
+                        <label><input type="checkbox" name="ram" value="32"> 32GB</label><br>
+                      </div>
+                    </div>
+            
+                    <div class="filter-group">
+                      <h4>
+                        Ổ cứng: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('hardrive-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="hardrive-filter" style="display: none;">
+                        <label><input type="checkbox" name="storage" value="1"> 1 TB</label><br>
+                        <label><input type="checkbox" name="storage" value="512"> 512 GB</label><br>
+                        <label><input type="checkbox" name="storage" value="256"> 256 GB</label><br>
+                        <label><input type="checkbox" name="storage" value="128"> 128 GB</label><br>
+                      </div>
+                    </div>
+            
+                    
+            
+                    <div class="filter-group">
+                      <h4>
+                        Kích thước màn hình: 
+                        <button type="button" class="toggle-btn" onclick="toggleFilter('screen-size-filter')">▼</button>
+                      </h4>
+                      <div class="filter-items" id="screen-size-filter" style="display: none;">
+                        <label><input type="checkbox" name="screen-size" value="13"> Dưới 14 inch</label><br>
+                        <label><input type="checkbox" name="screen-size" value="15"> 14-15 inch</label><br>
+                        <label><input type="checkbox" name="screen-size" value="17"> 15-17 inch</label><br>
+                      </div>
+                    </div>
+            
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                  </form>
+                </div>
+              </div>
+      
+              <!-- Danh sách sản phẩm -->
+              <div class="col-md-9">
+                  
+      
+                  <!-- Sản phẩm khác -->
+                  <div id="regular-products">
+                      <div >
+                        
+                        
+                        
+                        <div class="product-sort d-flex justify-content-between">
+                          <h5>Kết quả tìm thấy <span></span></h5>
+                          <div>
+                            <span>Sắp sếp theo</span>
+                            <select id="sort-options">
+                              <option value="default">Mặc định</option>
+                              <option value="price-asc">Giá: Tăng dần</option>
+                              <option value="price-desc">Giá: Giảm dần</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div id="Find-products-list" class="row">
+                          <!-- Các sản phẩm khác sẽ được thêm vào đây -->
+                      </div>
+                      <!-- <div style=" display: flex; justify-content: center">
+                        <div class="text-center " style="width: 120px; ">
+                            <button style="border-radius: 20px ;background-color: #f02d2d;" id="load-more-btn" class="btn btn-primary">Xem thêm</button>
+                        </div>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+        
+        
+        
+      </section>
+      
+    </main>
+    
+    <div class="navbar navbar-expand-sm bg-gradient navbar-dark fixed-bottom hidden"> 
+      <!-- Ban đầu ẩn với class hidden -->
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">So Sánh Sản Phẩm</a>
+          <div class="compare-products">
+              <!-- Sản phẩm so sánh sẽ được thêm ở đây -->
+              <span class="product-to-compare" data-product-id="1">Sản phẩm 1</span>
+              <span class="product-to-compare" data-product-id="2">Sản phẩm 2</span>
+          </div>
+          <div class="" style="width: 30%; display: flex;justify-content: center;">
+              <button id="compare-btn-product" onclick="compareProducts()">So sánh</button>
+              <button id="clear-all-btn" onclick="clearAllCompare()">Xóa Tất Cả</button>
+          </div>
+      </div>
+  </div>
+  <span id="toggle-arrow" onclick="toggleNavbar()" style="display:none;">▲</span> <!-- Mũi tên -->
+  
+  
+    <footer>
+      <div class="container">
+        <div class="footer-section">
+          <h3>Về chúng tôi</h3>
+          <p>
+            Laptop Store cung cấp các dòng laptop chất lượng cao, phục vụ mọi
+            nhu cầu từ học tập, làm việc cho đến gaming chuyên nghiệp.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Hỗ trợ khách hàng</h3>
+          <ul>
+            <li><a href="#">Chính sách bảo hành</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Phương thức thanh toán</a></li>
+            <li><a href="#">Giao hàng & Nhận hàng</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Liên hệ</h3>
+          <p><i class="fa-solid fa-phone"></i> Hotline: 0987589660</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> Email: support@laptopstore.com
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> Địa chỉ: 123 Đường ABC,
+            Quận XYZ, TP.HCM
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Theo dõi chúng tôi</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Laptop Store. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- Bootrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootrap js -->
+    <!-- <script src="/Laptop-Store/BTL-TTCSN-20241IT6040001-NHOM7/FE/assets/js/HomePage/HomeManage/homepage.js"></script> -->
+    <script src="assets/js/HomePage/HomeManage/filter.js"></script>
+    <script src="assets/js/HomePage/HomeManage/ListCompareNav.js"></script>
+    <!-- <script src="/Laptop-Store/BTL-TTCSN-20241IT6040001-NHOM7/FE/assets/js/HomePage/HomeManage/sidebar.js"></script> -->
+    
+    <script src="assets/js/HomePage/HomeManage/statusLogin.js"></script>
+    <script src="assets/js/HomePage/findListProducts/ProductList.js"></script>
+    <script src="assets/js/HomePage/findListProducts/BannerFind.js"></script>
+    
+    <link rel="stylesheet" href="assets/js/HomePage/findListProducts/Banner.css">
+    <script src="assets/js/HomePage/HomeManage/addFillterToForm.js"></script>
+    <script src="assets/js/HomePage/findListProducts/find.js"></script>
+  </body>
+</html>
