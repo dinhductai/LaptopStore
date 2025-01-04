@@ -2,6 +2,7 @@ package com.example.ProjectLaptopStore.Service;
 
 import com.example.ProjectLaptopStore.DTO.Supplier_FindTopSupplierDTO;
 import com.example.ProjectLaptopStore.DTO.SupplierDTO;
+import com.example.ProjectLaptopStore.Entity.JDBC.SuppliersJDBCEntity;
 import com.example.ProjectLaptopStore.Entity.SuppliersEntity;
 
 import java.util.List;
@@ -28,4 +29,5 @@ public interface SuppliersService {
     // phuong thuc lay ra thong tin nha cung cap theo ID
     SuppliersEntity getSupplierByID(Integer supplierId);
 
+    List<SuppliersJDBCEntity> getAllSuppliersJDBC();
 }

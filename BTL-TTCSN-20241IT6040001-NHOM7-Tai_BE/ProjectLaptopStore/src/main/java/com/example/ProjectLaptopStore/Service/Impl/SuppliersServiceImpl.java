@@ -3,7 +3,10 @@ package com.example.ProjectLaptopStore.Service.Impl;
 import com.example.ProjectLaptopStore.DTO.Supplier_FindTopSupplierDTO;
 import com.example.ProjectLaptopStore.DTO.SupplierDTO;
 import com.example.ProjectLaptopStore.Entity.Enum.Status_Enum;
+import com.example.ProjectLaptopStore.Entity.JDBC.SuppliersJDBCEntity;
 import com.example.ProjectLaptopStore.Entity.SuppliersEntity;
+import com.example.ProjectLaptopStore.Repository.Custom.Impl.SuppliersJDBCRepositoryImpl;
+import com.example.ProjectLaptopStore.Repository.SuppliersJDBCRepository;
 import com.example.ProjectLaptopStore.Repository.SuppliersRepository;
 import com.example.ProjectLaptopStore.Service.SuppliersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Autowired
     private SuppliersRepository suppliersRepository;
 
+    private SuppliersJDBCRepositoryImpl suppliersJDBCRepositoryImpl = new SuppliersJDBCRepositoryImpl();
     @Override
     public List<Supplier_FindTopSupplierDTO> listTopSupplier() {
         List<Supplier_FindTopSupplierDTO> result = suppliersRepository.listTopSuppliers();
@@ -57,5 +61,10 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Override
     public SuppliersEntity getSupplierByID(Integer supplierId) {
         return suppliersRepository.findById(supplierId).get();
+    }
+
+    @Override
+    public List<SuppliersJDBCEntity> getAllSuppliersJDBC() {
+        return suppliersJDBCRepositoryImpl.findAllCustom();
     }
 }

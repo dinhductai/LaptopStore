@@ -17,6 +17,7 @@ public class SuppliersJDBCEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @IdCustom
     @GeneratedValueCustom
+    @ColumnCustom(name = "SupplierID", nullable = false)
     private Integer supplierID;
     @ColumnCustom(name = "SupplierName",nullable = false)
     private String supplierName;
@@ -26,21 +27,98 @@ public class SuppliersJDBCEntity implements Serializable {
     private String phoneNumber;
     @ColumnCustom(name = "Email")
     private String email;
-    @ColumnCustom(name = "TaxCode")
-    private String taxCode;
+// 7
     @ColumnCustom(name = "Website")
     private String website;
     @ColumnCustom(name = "Representative")
     private String representative;
     @ColumnCustom(name = "PartnershipStartDate")
     private Date partnershipStartDate;
-    @ColumnCustom(name = "Status")
     @EnumeratedCustom
+    @ColumnCustom(name = "Status")
     private Status_Enum status = Status_Enum.active;
 
     @OneToManyCustom(mappedBy = "supplier",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = false)
     @JsonIgnoreCustom
     private List<ProductsEntity> products = new ArrayList<>();
 
+    public Integer getSupplierID() {
+        return supplierID;
+    }
 
+    public void setSupplierID(Integer supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getRepresentative() {
+        return representative;
+    }
+
+    public void setRepresentative(String representative) {
+        this.representative = representative;
+    }
+
+    public Date getPartnershipStartDate() {
+        return partnershipStartDate;
+    }
+
+    public void setPartnershipStartDate(Date partnershipStartDate) {
+        this.partnershipStartDate = partnershipStartDate;
+    }
+
+    public Status_Enum getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status_Enum status) {
+        this.status = status;
+    }
+
+    public List<ProductsEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductsEntity> products) {
+        this.products = products;
+    }
 }

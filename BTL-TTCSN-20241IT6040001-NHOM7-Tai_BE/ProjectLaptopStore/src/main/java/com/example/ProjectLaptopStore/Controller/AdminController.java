@@ -1,6 +1,7 @@
 package com.example.ProjectLaptopStore.Controller;
 
 import com.example.ProjectLaptopStore.DTO.*;
+import com.example.ProjectLaptopStore.Entity.JDBC.SuppliersJDBCEntity;
 import com.example.ProjectLaptopStore.Entity.ProductsEntity;
 import com.example.ProjectLaptopStore.Entity.SuppliersEntity;
 import com.example.ProjectLaptopStore.Entity.WareHouseEntity;
@@ -308,5 +309,10 @@ public class AdminController {
     public ResponseEntity<?> deleteEmployee(@PathVariable(name = "id") Integer id){
         employeesService.deleteEmployee(id);
         return  ResponseEntity.ok("success");
+    }
+
+    @GetMapping(value = "/all-supplier")
+    public List<SuppliersJDBCEntity> getAllSupplier(){
+        return suppliersService.getAllSuppliersJDBC();
     }
 }
