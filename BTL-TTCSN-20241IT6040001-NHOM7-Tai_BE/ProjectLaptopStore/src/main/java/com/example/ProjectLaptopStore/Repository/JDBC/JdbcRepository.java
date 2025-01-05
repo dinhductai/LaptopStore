@@ -6,4 +6,5 @@ import java.util.List;
 //repository custom
 public interface JdbcRepository<T> {
     List<T> findAllCustom();
+    void saveCustom(T tClass);
 }

@@ -29,5 +29,10 @@ public interface SuppliersService {
     // phuong thuc lay ra thong tin nha cung cap theo ID
     SuppliersEntity getSupplierByID(Integer supplierId);
 
+    // ham lay ra tat ca nha cung cap (custom jpa)
     List<SuppliersJDBCEntity> getAllSuppliersJDBC();
+
+    // ham luu nha cung cap (custom jpa)
+    void createSupplierJDBC(SupplierDTO supplierNew);
+
 }

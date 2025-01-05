@@ -9,6 +9,7 @@ import com.example.ProjectLaptopStore.Repository.Custom.Impl.SuppliersJDBCReposi
 import com.example.ProjectLaptopStore.Repository.SuppliersJDBCRepository;
 import com.example.ProjectLaptopStore.Repository.SuppliersRepository;
 import com.example.ProjectLaptopStore.Service.SuppliersService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,9 @@ public class SuppliersServiceImpl implements SuppliersService {
     private SuppliersRepository suppliersRepository;
 
     private SuppliersJDBCRepositoryImpl suppliersJDBCRepositoryImpl = new SuppliersJDBCRepositoryImpl();
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public List<Supplier_FindTopSupplierDTO> listTopSupplier() {
         List<Supplier_FindTopSupplierDTO> result = suppliersRepository.listTopSuppliers();
@@ -66,5 +70,11 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Override
     public List<SuppliersJDBCEntity> getAllSuppliersJDBC() {
         return suppliersJDBCRepositoryImpl.findAllCustom();
+    }
+
+    @Override
+    public void createSupplierJDBC(SupplierDTO supplierNew) {
+        SuppliersJDBCEntity suppliersJDBCEntity = modelMapper.map(supplierNew, SuppliersJDBCEntity.class);
+        suppliersJDBCRepositoryImpl.saveCustom(suppliersJDBCEntity);
     }
 }

@@ -19,7 +19,7 @@ public class SupplierDTO {
 //    private String website;
 //    private String representative;
 //    private Date partnershipStartDate;
-private Integer supplierId;
+    private Integer supplierId;
     @NotBlank(message = "Supplier name cant be blank")
     private String supplierName;
     @NotBlank(message = "Supplier address cant be blank")

@@ -312,7 +312,13 @@ public class AdminController {
     }
 
     @GetMapping(value = "/all-supplier")
-    public List<SuppliersJDBCEntity> getAllSupplier(){
+    public List<SuppliersJDBCEntity> getAllSupplierJDBC(){
         return suppliersService.getAllSuppliersJDBC();
+    }
+
+    @PostMapping(value = "/supplier-create")
+    public ResponseEntity<?> createSupplierJDBC(@RequestBody SupplierDTO supplierNew){
+        suppliersService.createSupplierJDBC(supplierNew);
+        return ResponseEntity.ok("success");
     }
 }

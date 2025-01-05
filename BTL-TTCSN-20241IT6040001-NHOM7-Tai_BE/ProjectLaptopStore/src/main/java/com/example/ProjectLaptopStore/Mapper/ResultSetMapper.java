@@ -3,6 +3,7 @@ package com.example.ProjectLaptopStore.Mapper;
 import com.example.ProjectLaptopStore.AnnotationCustom.ColumnCustom;
 import com.example.ProjectLaptopStore.AnnotationCustom.EntityCustom;
 import com.example.ProjectLaptopStore.AnnotationCustom.IdCustom;
+import com.example.ProjectLaptopStore.Config.BeanUtilsConfig;
 import org.apache.commons.beanutils.BeanUtils;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class ResultSetMapper<T> {
     public List<T> mapRow(ResultSet rs, Class<T> tClass) throws SQLException {
+        BeanUtilsConfig.registerEnumConverter();
         List<T> result = new ArrayList<>();
         try{
             if(tClass.isAnnotationPresent(EntityCustom.class)){

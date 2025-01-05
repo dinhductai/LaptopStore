@@ -27,9 +27,10 @@ public class SuppliersJDBCEntity implements Serializable {
     private String phoneNumber;
     @ColumnCustom(name = "Email")
     private String email;
-// 7
     @ColumnCustom(name = "Website")
     private String website;
+    @ColumnCustom(name = "TaxCode")
+    private String taxCode;
     @ColumnCustom(name = "Representative")
     private String representative;
     @ColumnCustom(name = "PartnershipStartDate")
@@ -52,6 +53,14 @@ public class SuppliersJDBCEntity implements Serializable {
 
     public String getSupplierName() {
         return supplierName;
+    }
+
+    public String getTaxCode() {
+        return taxCode;
+    }
+
+    public void setTaxCode(String taxCode) {
+        this.taxCode = taxCode;
     }
 
     public void setSupplierName(String supplierName) {
