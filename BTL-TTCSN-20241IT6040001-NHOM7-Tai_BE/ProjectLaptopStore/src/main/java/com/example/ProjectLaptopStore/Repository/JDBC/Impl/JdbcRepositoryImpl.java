@@ -45,15 +45,12 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
     public T findByIdCustom(ID id) {
         Class<T> tClass = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         String tableName="";
-        String sql ="";
         T result ;
         if(tClass.isAnnotationPresent(TableCustom.class)) {
             TableCustom tableCustom = tClass.getAnnotation(TableCustom.class);
             tableName = tableCustom.name();
         }
-//        if(tClass.isAnnotationPresent(IdCustom.class)) {
-            sql = "select * from " + tableName + " where " + getPrimaryKeyColumn(tClass) +"=" +id;
-
+        String sql = "select * from " + tableName + " where " + getPrimaryKeyColumn(tClass) +"=" +id;
         ResultSetMapper<T> resultSetMapper = new ResultSetMapper<T>();
         try(Connection conn = ConnectionUtil.getConnection();
             Statement stmt = conn.createStatement();

@@ -2,8 +2,10 @@ package com.example.ProjectLaptopStore.Mapper;
 
 import com.example.ProjectLaptopStore.AnnotationCustom.ColumnCustom;
 import com.example.ProjectLaptopStore.AnnotationCustom.EntityCustom;
+import com.example.ProjectLaptopStore.AnnotationCustom.EnumeratedCustom;
 import com.example.ProjectLaptopStore.AnnotationCustom.IdCustom;
 import com.example.ProjectLaptopStore.Config.BeanUtilsConfig;
+import com.example.ProjectLaptopStore.Entity.Enum.Status_Enum;
 import org.apache.commons.beanutils.BeanUtils;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
@@ -14,7 +16,7 @@ import java.util.List;
 
 public class ResultSetMapper<T> {
     public List<T> mapRowList(ResultSet rs, Class<T> tClass) throws SQLException {
-        BeanUtilsConfig.registerEnumConverter();
+        BeanUtilsConfig.registerEnumConverter(tClass);
         List<T> result = new ArrayList<>();
         try{
             if(tClass.isAnnotationPresent(EntityCustom.class)){
@@ -50,7 +52,7 @@ public class ResultSetMapper<T> {
     }
 
     public T mapRowOne(ResultSet rs,Class<T> tClass) throws SQLException {
-        BeanUtilsConfig.registerEnumConverter();
+        BeanUtilsConfig.registerEnumConverter(tClass);
         try {
             T result = tClass.newInstance();
             if (tClass.isAnnotationPresent(EntityCustom.class)) {
