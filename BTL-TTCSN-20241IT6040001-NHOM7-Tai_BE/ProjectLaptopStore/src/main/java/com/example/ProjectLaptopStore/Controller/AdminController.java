@@ -321,4 +321,9 @@ public class AdminController {
         suppliersService.createSupplierJDBC(supplierNew);
         return ResponseEntity.ok("success");
     }
+
+    @GetMapping(value = "/supplier-one/{id}")
+    public SuppliersJDBCEntity getSupplierById(@PathVariable(name = "id") Integer id){
+        return suppliersService.getSupplierByIDJDBC(id);
+    }
 }

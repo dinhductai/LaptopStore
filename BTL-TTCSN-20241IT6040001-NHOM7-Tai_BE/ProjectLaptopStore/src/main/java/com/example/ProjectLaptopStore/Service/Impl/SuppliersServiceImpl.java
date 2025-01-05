@@ -77,4 +77,11 @@ public class SuppliersServiceImpl implements SuppliersService {
         SuppliersJDBCEntity suppliersJDBCEntity = modelMapper.map(supplierNew, SuppliersJDBCEntity.class);
         suppliersJDBCRepositoryImpl.saveCustom(suppliersJDBCEntity);
     }
+
+    @Override
+    public SuppliersJDBCEntity getSupplierByIDJDBC(Integer supplierId) {
+        return suppliersJDBCRepositoryImpl.findByIdCustom(supplierId);
+    }
+
+
 }

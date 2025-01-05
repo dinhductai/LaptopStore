@@ -35,4 +35,7 @@ public interface SuppliersService {
     // ham luu nha cung cap (custom jpa)
     void createSupplierJDBC(SupplierDTO supplierNew);
 
+    // ham tim kiem bang id (custom jpa)
+    SuppliersJDBCEntity getSupplierByIDJDBC(Integer supplierId);
+
 }

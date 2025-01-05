@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResultSetMapper<T> {
-    public List<T> mapRow(ResultSet rs, Class<T> tClass) throws SQLException {
+    public List<T> mapRowList(ResultSet rs, Class<T> tClass) throws SQLException {
         BeanUtilsConfig.registerEnumConverter();
         List<T> result = new ArrayList<>();
         try{
@@ -39,6 +39,38 @@ public class ResultSetMapper<T> {
                         }
                     }
                     result.add(obj);
+                }
+            }
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public T mapRowOne(ResultSet rs,Class<T> tClass) throws SQLException {
+        BeanUtilsConfig.registerEnumConverter();
+        try {
+            T result = tClass.newInstance();
+            if (tClass.isAnnotationPresent(EntityCustom.class)) {
+                Field[] fields = tClass.getDeclaredFields();
+                ResultSetMetaData resultSetMetaData = rs.getMetaData();
+                while (rs.next()) {
+                for(int i=1 ; i<=resultSetMetaData.getColumnCount(); i++){
+                    String columnName = resultSetMetaData.getColumnName(i);
+                    Object columnValue = rs.getObject(i);
+                    for(Field field : fields) {
+                        field.setAccessible(true);
+                        if (field.isAnnotationPresent(ColumnCustom.class)) {
+                            ColumnCustom columnCustom = field.getAnnotation(ColumnCustom.class);
+                            if (columnCustom.name().equals(columnName)) {
+                                BeanUtils.setProperty(result, field.getName(), columnValue);
+                                break;
+                            }
+                        }
+                    }
+                    }
                 }
             }
             return result;
