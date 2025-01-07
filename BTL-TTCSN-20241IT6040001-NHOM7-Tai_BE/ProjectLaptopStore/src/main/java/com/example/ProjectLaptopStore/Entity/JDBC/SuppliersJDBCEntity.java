@@ -14,7 +14,7 @@ import java.util.List;
 @EntityCustom
 @TableCustom(name = "suppliers")
 public class SuppliersJDBCEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 1L;
     @IdCustom
     @GeneratedValueCustom
     @ColumnCustom(name = "SupplierID", nullable = false)

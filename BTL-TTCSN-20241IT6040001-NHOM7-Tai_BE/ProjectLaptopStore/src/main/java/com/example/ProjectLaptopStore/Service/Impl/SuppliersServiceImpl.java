@@ -1,5 +1,6 @@
 package com.example.ProjectLaptopStore.Service.Impl;
 
+import com.example.ProjectLaptopStore.DTO.SupplierDTOtest;
 import com.example.ProjectLaptopStore.DTO.Supplier_FindTopSupplierDTO;
 import com.example.ProjectLaptopStore.DTO.SupplierDTO;
 import com.example.ProjectLaptopStore.Entity.Enum.Status_Enum;
@@ -75,12 +76,18 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Override
     public void createSupplierJDBC(SupplierDTO supplierNew) {
         SuppliersJDBCEntity suppliersJDBCEntity = modelMapper.map(supplierNew, SuppliersJDBCEntity.class);
-        suppliersJDBCRepositoryImpl.saveCustom(suppliersJDBCEntity);
+        suppliersJDBCRepositoryImpl.saveCustomVer2(suppliersJDBCEntity);
     }
 
     @Override
     public SuppliersJDBCEntity getSupplierByIDJDBC(Integer supplierId) {
         return suppliersJDBCRepositoryImpl.findByIdCustom(supplierId);
+    }
+
+    @Override
+    public void saveOrUpdateSupplier(SupplierDTOtest supplierNew) {
+        SuppliersJDBCEntity suppliersJDBCEntity = modelMapper.map(supplierNew, SuppliersJDBCEntity.class);
+        suppliersJDBCRepositoryImpl.saveCustomVer2(suppliersJDBCEntity);
     }
 
 

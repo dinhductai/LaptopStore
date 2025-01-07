@@ -9,17 +9,8 @@ import lombok.Setter;
 import java.util.Date;
 @Getter
 @Setter
-public class SupplierDTO {
-//    private Integer supplierId;
-//    private String supplierName;
-//    private String address;
-//    private String phoneNumber;
-//    private String email;
-//    private String taxcode;
-//    private String website;
-//    private String representative;
-//    private Date partnershipStartDate;
-    private Integer supplierId;
+public class SupplierDTOtest {
+    private Integer supplierID;
     @NotBlank(message = "Supplier name cant be blank")
     private String supplierName;
     @NotBlank(message = "Supplier address cant be blank")
@@ -36,8 +27,8 @@ public class SupplierDTO {
     @PastOrPresent(message = "Partnership start date cannot be in the future.")
     private Date partnershipStartDate;
 
-    public SupplierDTO(Integer supplierId, String supplierName, String address, String phoneNumber, String email, String taxcode, String website, String representative, Date partnershipStartDate) {
-        this.supplierId = supplierId;
+    public SupplierDTOtest(Integer supplierID, String supplierName, String address, String phoneNumber, String email, String taxcode, String website, String representative, Date partnershipStartDate) {
+        this.supplierID = supplierID;
         this.supplierName = supplierName;
         this.address = address;
         this.phoneNumber = phoneNumber;

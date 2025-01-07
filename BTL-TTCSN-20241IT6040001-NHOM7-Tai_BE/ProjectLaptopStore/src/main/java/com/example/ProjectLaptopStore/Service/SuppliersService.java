@@ -1,5 +1,6 @@
 package com.example.ProjectLaptopStore.Service;
 
+import com.example.ProjectLaptopStore.DTO.SupplierDTOtest;
 import com.example.ProjectLaptopStore.DTO.Supplier_FindTopSupplierDTO;
 import com.example.ProjectLaptopStore.DTO.SupplierDTO;
 import com.example.ProjectLaptopStore.Entity.JDBC.SuppliersJDBCEntity;
@@ -38,4 +39,5 @@ public interface SuppliersService {
     // ham tim kiem bang id (custom jpa)
     SuppliersJDBCEntity getSupplierByIDJDBC(Integer supplierId);
 
+    void saveOrUpdateSupplier(SupplierDTOtest supplierNew);
 }

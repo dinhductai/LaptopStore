@@ -326,4 +326,10 @@ public class AdminController {
     public SuppliersJDBCEntity getSupplierById(@PathVariable(name = "id") Integer id){
         return suppliersService.getSupplierByIDJDBC(id);
     }
+    @PutMapping(value = "/supplier-update")
+    public ResponseEntity<?> createOrUpdateSupplierJDBC(@RequestBody SupplierDTOtest supplierNew){
+        suppliersService.saveOrUpdateSupplier(supplierNew);
+        return ResponseEntity.ok("success");
+    }
+
 }

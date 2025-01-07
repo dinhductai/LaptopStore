@@ -66,7 +66,7 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
 
     }
 
-
+    //hàm save entity,chưa có khả năng update dựa vào id
     @Override
     public void saveCustom(T tClass) {
         try(Connection conn = ConnectionUtil.getConnection();
@@ -100,6 +100,124 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
             System.out.println("Connect database error");
         }
     }
+
+    @Override
+    public void saveCustomVer2(T tClass)  {
+        Class<T> entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        Object idEntity=null;
+        String tableName=null;
+        if (entityClass.isAnnotationPresent(TableCustom.class)) {
+            tableName = entityClass.getAnnotation(TableCustom.class).name();
+        } else {
+            System.out.println("Entity class need add @TableCustom");
+        }
+        boolean isUpdate = false;
+        try{
+        for(Field field : tClass.getClass().getDeclaredFields()){
+            field.setAccessible(true);
+            if(field.isAnnotationPresent(IdCustom.class)){
+                idEntity = field.get(tClass);
+                isUpdate = true;
+                break;
+            }
+        }
+
+        if(isUpdate && idEntity != null){
+            updateEntity(tClass,entityClass,idEntity,tableName);
+        }
+        else {
+            saveCustom(tClass);
+        }
+        }
+        catch (Exception ex){
+            System.out.println("Connect database error");
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateEntity(T tClass, Class<T> entityClass, Object idEntity, String tableName){
+        String sql = "select * from " + tableName + " where " + getPrimaryKeyColumn(entityClass) +"=" +idEntity;
+        ResultSetMapper<T> resultSetMapper = new ResultSetMapper<T>();
+        T result=null;
+        try(Connection conn = ConnectionUtil.getConnection();
+            //tìm kiếm entity với id đc truyền vào
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)){
+            result = resultSetMapper.mapRowOne(rs,entityClass);
+            if(result != null){
+                //cập nhật với thông tin mới
+                try (PreparedStatement ps = conn.prepareStatement(createSqlUpdate(tClass, entityClass, idEntity, tableName))) {
+                    Field[] fields = tClass.getClass().getDeclaredFields();
+                    int index = 1;
+                    for (Field field : fields) {
+                        field.setAccessible(true);
+                        if (field.isAnnotationPresent(ColumnCustom.class) && !field.isAnnotationPresent(IdCustom.class)) {
+                            Object value = field.get(tClass);
+                            if (field.getType().isEnum() && value != null) {
+                                value = value.toString();
+                            }
+                            ps.setObject(index++, value);
+                        }
+                    }
+// Gán giá trị cho WHERE (khóa chính)
+                    ps.setObject(index, idEntity);
+                    ps.executeUpdate();
+                }
+
+            catch (Exception ex){
+                    ex.printStackTrace();
+                    System.out.println("Connect database error");
+                }
+            }
+            else{
+                System.out.println("not fould entity with id");
+            }
+        }catch (Exception ex){
+            System.out.println("Connect database error");
+        }
+    }
+
+
+//    private String createSqlUpdate(T tClass, Class<T>  entityClass, Object idEntity , String tableName) {
+//        StringBuilder sqlBuilder = new StringBuilder(" UPDATE ");
+//        sqlBuilder.append(tableName).append(" SET ");
+//        Field[] fields = tClass.getClass().getDeclaredFields();
+//        try{
+//            for(int i = 0; i < fields.length; i++){
+//                Field field = fields[i];
+//                field.setAccessible(true);
+//                if (field.isAnnotationPresent(ColumnCustom.class)) {
+//                    if (field.isAnnotationPresent(IdCustom.class)) {
+//                        continue;
+//                    }
+//                    ColumnCustom columnCustom = field.getAnnotation(ColumnCustom.class);
+//                    sqlBuilder.append(columnCustom.name()).append(" = ? ");
+//                    // Kiểm tra xem đây có phải là trường cuối cùng không
+//                    if (i < fields.length - 2) {
+//                        sqlBuilder.append(", ");  // Nếu không phải trường cuối cùng, thêm dấu phẩy
+//                    }
+//                }
+//            }
+//            sqlBuilder.append(" WHERE " +getPrimaryKeyColumn(entityClass)+ " = "+ idEntity );
+//        }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return sqlBuilder.toString();
+//    }
+private String createSqlUpdate(T tClass, Class<T> entityClass, Object idEntity, String tableName) {
+    StringBuilder sqlBuilder = new StringBuilder("UPDATE " + tableName + " SET ");
+    Field[] fields = tClass.getClass().getDeclaredFields();
+
+    for (Field field : fields) {
+        if (field.isAnnotationPresent(ColumnCustom.class) && !field.isAnnotationPresent(IdCustom.class)) {
+            sqlBuilder.append(field.getAnnotation(ColumnCustom.class).name()).append(" = ?, ");
+        }
+    }
+    sqlBuilder.deleteCharAt(sqlBuilder.length() - 2); // Xóa dấu phẩy cuối cùng
+    sqlBuilder.append("WHERE ").append(getPrimaryKeyColumn(entityClass)).append(" = ?");
+    return sqlBuilder.toString();
+}
+
 
     private String createSqlInsert(){
         Class<T> tClass = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
