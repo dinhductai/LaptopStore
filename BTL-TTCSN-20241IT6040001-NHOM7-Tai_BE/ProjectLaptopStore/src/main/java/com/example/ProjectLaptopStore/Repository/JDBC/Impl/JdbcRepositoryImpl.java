@@ -177,33 +177,6 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
         }
     }
 
-
-//    private String createSqlUpdate(T tClass, Class<T>  entityClass, Object idEntity , String tableName) {
-//        StringBuilder sqlBuilder = new StringBuilder(" UPDATE ");
-//        sqlBuilder.append(tableName).append(" SET ");
-//        Field[] fields = tClass.getClass().getDeclaredFields();
-//        try{
-//            for(int i = 0; i < fields.length; i++){
-//                Field field = fields[i];
-//                field.setAccessible(true);
-//                if (field.isAnnotationPresent(ColumnCustom.class)) {
-//                    if (field.isAnnotationPresent(IdCustom.class)) {
-//                        continue;
-//                    }
-//                    ColumnCustom columnCustom = field.getAnnotation(ColumnCustom.class);
-//                    sqlBuilder.append(columnCustom.name()).append(" = ? ");
-//                    // Kiểm tra xem đây có phải là trường cuối cùng không
-//                    if (i < fields.length - 2) {
-//                        sqlBuilder.append(", ");  // Nếu không phải trường cuối cùng, thêm dấu phẩy
-//                    }
-//                }
-//            }
-//            sqlBuilder.append(" WHERE " +getPrimaryKeyColumn(entityClass)+ " = "+ idEntity );
-//        }catch (Exception ex){
-//            ex.printStackTrace();
-//        }
-//        return sqlBuilder.toString();
-//    }
 private String createSqlUpdate(T tClass, Class<T> entityClass, Object idEntity, String tableName) {
     StringBuilder sqlBuilder = new StringBuilder("UPDATE " + tableName + " SET ");
     Field[] fields = tClass.getClass().getDeclaredFields();
