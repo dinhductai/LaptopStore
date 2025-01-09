@@ -191,7 +191,7 @@ private String createSqlUpdate(T tClass, Class<T> entityClass, Object idEntity, 
     return sqlBuilder.toString();
 }
 
-
+//hàm tạo code sql insert bảng
     private String createSqlInsert(){
         Class<T> tClass = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         String tableName = "";
@@ -217,6 +217,7 @@ private String createSqlUpdate(T tClass, Class<T> entityClass, Object idEntity, 
         return sql;
     }
 
+    //hàm lấy tên cột id của các entity
     private String getPrimaryKeyColumn(Class<T> tClass){
         try {
             for(Field field : tClass.getDeclaredFields()){
