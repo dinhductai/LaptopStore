@@ -135,6 +135,16 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
         }
     }
 
+    @Override
+    public void deleteCustom(T tClass) {
+        
+    }
+
+    @Override
+    public void deleteByIdCustom(ID id) {
+
+    }
+
     public void updateEntity(T tClass, Class<T> entityClass, Object idEntity, String tableName){
         String sql = "select * from " + tableName + " where " + getPrimaryKeyColumn(entityClass) +"=" +idEntity;
         ResultSetMapper<T> resultSetMapper = new ResultSetMapper<T>();
