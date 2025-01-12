@@ -137,7 +137,12 @@ public class JdbcRepositoryImpl<T, ID> implements JdbcRepository<T, ID> {
 
     @Override
     public void deleteCustom(T tClass) {
-        
+        Class<T> entityClass =  (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        String tableName="";
+        if (entityClass.isAnnotationPresent(TableCustom.class)) {
+            tableName = entityClass.getAnnotation(TableCustom.class).name();
+        }
+
     }
 
     @Override

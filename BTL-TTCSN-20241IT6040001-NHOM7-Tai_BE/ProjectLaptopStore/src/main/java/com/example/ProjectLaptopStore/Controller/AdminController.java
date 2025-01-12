@@ -13,7 +13,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.List;
 //Lớp kiểm soát api của role admin
 @RestController
@@ -317,9 +320,15 @@ public class AdminController {
     }
 
     @PostMapping(value = "/supplier-create")
-    public ResponseEntity<?> createSupplierJDBC(@RequestBody SupplierDTO supplierNew){
+    public ResponseEntity<SupplierDTO> createSupplierJDBC(@RequestBody SupplierDTO supplierNew){
         suppliersService.createSupplierJDBC(supplierNew);
-        return ResponseEntity.ok("success");
+//        /supplier/update/{id}  gọi api này khi tạo xong
+        //không trả về id, vì không tạo id trước khi lưu vào db
+        //cần suppliersService.createSupplierJDBC(supplierNew) trả về một đối tượng kiểu SupplierDTO,lấy id từ đó
+        URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/supplier/update/{id}")
+                .buildAndExpand(supplierNew.getSupplierId()).toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @GetMapping(value = "/supplier-one/{id}")
